@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
+    font-family: Lexend;
 }
 ::-webkit-scrollbar{
     width: 1.2vw;
@@ -37,7 +39,7 @@ body{
     width: 40vw;
     padding-bottom: 1vh;
     border-bottom: white solid 0.5vh;
-    transition: 0.3s;
+    transition: 0.5s;
     opacity: 1;
 }
 .header #cadastroLink{
@@ -46,46 +48,29 @@ body{
     margin-top: 3vh;
     margin-right: 2vw;
     font-size: 1.3em;
-    color: #ddd;
+    color: #ededed;
     border: none;
     text-decoration: underline;
-    transition: 0.3s;
+    transition: 0.75s;
     opacity: 1;
 }
 .header #cadastroLink:hover{
     font-size: 1.4em;
     color: #fff;
-    text-decoration: none;
-    border: black outset 0.1vh;
     border-radius: 2vh;
+    text-decoration: none;
+    border: rgb(55, 55, 55) outset 0.1vh;
 }
-.header .sideBarButtons {
-    font-size:3.5vw;
-    cursor:pointer; 
-    color:white;
-    z-index: 11;
-    float: left;
-    transition: 0.7s;
-    opacity: 1;
-}
-  .leftsidenav {
-    height: 100vh;
+.leftsidenav {
+    max-height: 100vh;
+    height: 98vh;
     width: 0;
     position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+    z-index: 10;
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.6s;
     padding-top: 2vh;
-}
-.leftsidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 1.5vw;
-    font-size: 7vh;
-    margin-left: 5vw;
 }
 .leftsidenav a {
   text-align: left;
@@ -94,9 +79,61 @@ body{
   font-size: 2.5vw;
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition: 0.5s;
+}
+.leftsidenav div {
+    margin-top: 10vh;
 }
 .leftsidenav a:hover  {
     color: #f1f1f1;
     cursor: pointer;
 }
+.menu-btn {
+    width: 3.5vw;
+    height: 5vh;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+    position: fixed;
+    top: 2.5vh;
+    left: 1.5vw;
+    z-index: 11;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-btn__burger {
+    width: 3.5vw;
+    height: 0.65vh;
+    background: #fff;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+  }
+  .menu-btn__burger::before,
+  .menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 3.5vw;
+    height: 0.65vh;
+    background: #fff;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+  }
+  .menu-btn__burger::before {
+    transform: translate(-1.7vw, -2vh);
+  }
+  .menu-btn__burger::after {
+    transform: translate(-1.7vw, 2vh);
+  }
+  /* ANIMATION */
+  .menu-btn.open .menu-btn__burger {
+    transform: translateX(-4vw);
+    background: transparent;
+    box-shadow: none;
+  }
+  .menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(15px, -15px);
+  }
+  .menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(15px, 15px);
+  }
