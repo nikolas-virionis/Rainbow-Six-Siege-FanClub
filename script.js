@@ -1,4 +1,4 @@
-let setInter, timer = 0, menu = document.querySelector(".menu-btn"), counter = 1, setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+let setInter, timer = 0, menu = document.querySelector(".menu-btn"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
 document.addEventListener('mousemove', () => {
     menu.style.opacity = "1";
     document.documentElement.style.cursor = 'auto';
@@ -20,16 +20,19 @@ const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
   if(!menuOpen) {
-    menuBtn.classList.add('open');
-    document.getElementById("myLeftSidenav").style.width = "25vw";
+    leftNavBar.style.width = "25vw";
     menuOpen = true;
     funcSetInterval();
+    clearInterval(setInter);
+    menuBtn.classList.add('open');
   } 
   else {
-    menuBtn.classList.remove('open');
     document.getElementById("myLeftSidenav").style.width = "0";
     menuOpen = false;
-  }
+    clearInterval(setInter);
+    setInter = setInterval(dimInterval, 1000);
+    menuBtn.classList.remove('open');
+}
 });
 const radioChange = num => {
   counter = num;
