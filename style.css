@@ -25,8 +25,8 @@ body{
 .header{
     width: 100vw;
     height: 15vh;
-    background-color: #CF0134;
-    color: azure;
+    background-color: red;
+    color: rgb(3, 0, 56);
     text-align: center;
     position: sticky;
 }
@@ -48,7 +48,8 @@ body{
     margin-top: 3vh;
     margin-right: 2vw;
     font-size: 1.3em;
-    color: #ededed;
+    color: #211c1c;
+    font-weight: 600;
     border: none;
     text-decoration: underline;
     transition: 0.75s;
@@ -56,10 +57,10 @@ body{
 }
 .header #cadastroLink:hover{
     font-size: 1.4em;
-    color: #fff;
+    color: black;
     border-radius: 2vh;
     text-decoration: none;
-    border: rgb(55, 55, 55) outset 0.1vh;
+    border: rgb(232, 232, 232) outset 0.1vh;
 }
 .leftsidenav {
     max-height: 100vh;
@@ -67,7 +68,7 @@ body{
     width: 0;
     position: fixed;
     z-index: 10;
-    background-color: #111;
+    background-color: #e2dddd;
     overflow-x: hidden;
     transition: 0.6s;
     padding-top: 2vh;
@@ -77,7 +78,7 @@ body{
   padding: 20px 8px 8px 8px;
   text-decoration: none;
   font-size: 2.5vw;
-  color: #d1d1d1;
+  color: black;
   display: block;
   transition: 0.5s;
 }
@@ -85,7 +86,7 @@ body{
     margin-top: 10vh;
 }
 .leftsidenav a:hover  {
-    color: #ff3600;
+    color: #ee0000;
     cursor: pointer;
 }
 .menu-btn {
@@ -105,7 +106,7 @@ body{
   .menu-btn__burger {
     width: 3.5vw;
     height: 0.65vh;
-    background: #fff;
+    background: black;
     border-radius: 5px;
     transition: all .5s ease-in-out;
   }
@@ -115,7 +116,7 @@ body{
     position: absolute;
     width: 3.5vw;
     height: 0.65vh;
-    background: #fff;
+    background: black;
     border-radius: 5px;
     transition: all .5s ease-in-out;
   }
@@ -125,7 +126,6 @@ body{
   .menu-btn__burger::after {
     transform: translate(-1.7vw, 2vh);
   }
-  /* ANIMATION */
   .menu-btn.open .menu-btn__burger {
     transform: translateX(-4vw);
     background: transparent;
@@ -137,26 +137,22 @@ body{
   .menu-btn.open .menu-btn__burger::after {
     transform: rotate(-45deg) translate(15px, 15px);
   }
-  .menu-btn.open:hover + div > .menu-btn.open .menu-btn__burger::before{
-    background: red;
-  }
   #historyTab{
     width: 100%;
-    color: red;
+    color: rgb(17, 17, 17);
     position: relative;
     text-align: left;
     font-size: 1.6vw;
-    font-weight: 300;
+    font-weight: 600;
     border-radius: 1.5vw;
-    max-height: 55vh;
+    max-height: 56.25vh;
     overflow-x: hidden;
     overflow-y:auto;
     margin-top: 3vh;
     display: flex;
     align-items: center;
-    background-color: #d2d2d2;
+    background-color: red;
   }
-  
 #historyTab:-webkit-scrollbar{
   width: 0.1vw;
   height: 0.1vw;
@@ -167,10 +163,10 @@ body{
 }
 #historyTab::-webkit-scrollbar-thumb{
   border-radius: 1000px;
-  background-color:rgb(172, 172, 172);
+  background-color:rgb(51, 41, 41);
 }
 #historyTab::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(181, 133, 133);
+  background-color: rgb(138, 3, 3);
 }
   #historyTab img{
     position: absolute;
@@ -179,9 +175,9 @@ body{
     right: 40%;
     border: none;
     margin-bottom: 0;
-    width: 20%;
+    width: 22%;
     min-width: 50px;
-    height: 15%;
+    height: 17.5%;
     max-height: 50px;
   }
 .slider{
@@ -206,8 +202,13 @@ body{
   }
   .slide a{
     font-weight: 900;
-    font-size: 0.75em;
-    color: red;
+    font-size: 0.85em;
+    color: rgb(0, 0, 0);
+  }
+  .slide a:hover{
+    font-weight: 900;
+    font-size: 0.925em;
+    color: rgb(50, 50, 50);
   }
 .navigation-manual{
   position: absolute;
@@ -218,7 +219,8 @@ body{
   justify-content: center;
 }
 .manual-btn{
-  border: 2px solid rgb(146, 0, 0);
+  background: rgb(32, 45, 49);
+  border: 2px solid rgb(32, 45, 49);
   padding: 4px;
   border-radius: 10px;
   cursor: pointer;
@@ -228,7 +230,7 @@ body{
   margin-right: 40px;
 }
 .manual-btn:hover{
-  background: rgb(146, 0, 0);
+  background: rgb(47, 82, 92);
 }
 #radio1:checked ~ .first{
   margin-left: 0.5%;
@@ -250,7 +252,7 @@ body{
   margin-top: 460px;
 }
 .navigation-auto div{
-  border: 2px solid rgb(146, 0, 0);
+  border: 2px solid rgb(56, 74, 80);
   padding: 5px;
   border-radius: 10px;
   transition: 1s;
@@ -269,4 +271,88 @@ body{
 }
 #radio4:checked ~ .navigation-auto .auto-btn4{
   background: rgb(146, 0, 0);
+}
+.bodyDiv{
+  background-color: #222;
+  height: 85vh;
+  width: 100vw;
+}
+.bodyDivMain{
+  background-image: url('https://www.teslarati.com/wp-content/uploads/2019/08/tesla-gigafactory-4-europe.jpg');
+  background-size: 100vw 85vh;
+  height: 85vh;
+  width: 100vw;
+  z-index: 1;
+}
+.box-formCadastro{
+  width: 35vw;
+  height: fit-content;
+  overflow: auto;
+  position: absolute;
+  top: 57.5vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  text-align: center;
+  border-radius: 1vw;
+  font-family: Quicksand;
+}
+.box-formCadastro h1{
+  text-transform: uppercase;
+  font-weight: 500;
+  color: white;
+  position: sticky;
+  width: 100%;
+  z-index: 10;
+  background: none;
+}
+.box-formCadastro .classCadastro{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 25px auto;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 1.4vw 1vw;
+  width: 24vw;
+  outline: none;
+  color: white;
+  border-radius: 2vw;
+  transition: 0.25s;
+}
+.box-formCadastro .classCadastro:focus{
+  width: 32vw;
+  border-color: white;
+}
+.classCadastroError{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 25px auto;
+  text-align: center;
+  border: 2px solid red;
+  padding: 1.4vw 1vw;
+  width: 24vw;
+  outline: none;
+  color: red;
+  border-radius: 2vw;
+  transition: 0.25s;
+}
+.box-formCadastro #btnSubmit{
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #ff0000;
+  padding: 1.4vw 4vw;
+  outline: none;
+  color: white;
+  border-radius: 2vw;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box-formCadastro #btnSubmit:hover{
+  background: #ff0000;
+  border-color: black;
 }

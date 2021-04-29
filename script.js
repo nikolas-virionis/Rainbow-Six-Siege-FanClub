@@ -8,7 +8,13 @@ document.addEventListener('mousemove', () => {
     setInter = setInterval(dimInterval, 1000);
 })
 const dimInterval = () => {
-    if (timer < 30) timer++;
+    if (menuOpen === true) {
+      menu.style.opacity = "1";
+      document.body.style.filter = "brightness(1)";
+      document.documentElement.style.cursor = 'auto';
+      return;
+    }
+    if (timer < 34) timer++;
     else {
         menu.style.opacity = "0";
         document.body.style.filter = "brightness(0.75)";
@@ -25,6 +31,7 @@ menuBtn.addEventListener('click', () => {
     funcSetInterval();
     clearInterval(setInter);
     menuBtn.classList.add('open');
+    clearInterval(setInter);
   } 
   else {
     document.getElementById("myLeftSidenav").style.width = "0";
@@ -44,5 +51,6 @@ const funcSetInterval = () => {
   document.getElementById('radio' + counter).checked = true;
   if(counter >= 4) counter = 0;
   counter++;
-}, 10000);
+}, 8000);
 }
+cadastroLink.style.display = "block";

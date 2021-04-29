@@ -1,0 +1,51 @@
+let emailValido, senhaValida;
+cadastroLink.style.display = "none";
+const validateEmail = email => {
+    emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;
+    if (email.value == "" || emailValido) emailId.classList = 'classCadastro';
+    else emailId.classList = 'classCadastroError';
+}
+const validatePassword = senha => {
+    senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0|| senha.value.indexOf('3') >= 0|| senha.value.indexOf('4') >= 0|| senha.value.indexOf('5') >= 0|| senha.value.indexOf('6') >= 0|| senha.value.indexOf('7') >= 0|| senha.value.indexOf('8') >= 0|| senha.value.indexOf('9') >= 0
+    senhaValida = senha.value.length >= 8 && senha.value.length <= 16 && senha.value !== senha.value.toLowerCase() && senhaComNum && !(senha.value.includes(' '));
+    console.log(senha.value);
+    if (senha.value == "" || senhaValida) passwordId.classList = 'classCadastro';
+    else passwordId.classList = 'classCadastroError';
+}
+const confirmPassword = () => {
+    if (passwordId.value === passwordIdConfirm.value) passwordIdConfirm.classList = 'classCadastro';
+    else passwordIdConfirm.classList = 'classCadastroError';
+}
+function confirmProfile(){
+    if (emailId.value == "" || passwordId.value == "" || passwordIdConfirm.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
+    else if (!senhaValida) {
+        alert("Senha Inválida");
+        passwordId.value = "";
+        passwordIdConfirm.value = "";
+    }
+    else if (passwordId.value != passwordIdConfirm.value) alert("Senhas diferentes");
+    else if (!emailValido) {
+        alert("Email Inválido");
+        emailId.value = "";
+    }
+    // else if (emailId.value == email1 || emailId.value == email2 || emailId.value == email3) {
+    //     alert("Perfil já existente com esse Email");
+    //     window.location.href = "login.html";
+    // }
+    else{//perfil válido, e entrada bem sucedida
+        // logins = "1"
+        // localStorage.setItem("logins", logins);
+        window.location.href = "menuOptions.html";
+    }
+}
+function enterFunc(event) {
+    if(event.key === "Enter"){
+        confirmProfile();
+    }
+}
+function enterFuncMid(event, blur, focus) {
+    if(event.key === "Enter"){
+        document.getElementById(blur).blur();
+        document.getElementById(focus).focus();
+    }
+}

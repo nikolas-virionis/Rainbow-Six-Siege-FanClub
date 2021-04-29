@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesla - Superação</title>
+    <title>Tesla - Login Fan Prime</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="scriptCadastro.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -79,7 +80,12 @@
      </div>
  </div>
  <div class="bodyDiv">
-
+  <form class="box-formCadastro">
+    <h1 id="idHeadCadastro">Login</h1>
+    <input type="text" placeholder="UserName" class="classCadastro" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
+    <input type="password" placeholder="Senha" title="A senha deve conter pelo menos uma letra maiúscula, um número e deve conter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
+    <input type="button" value="Inscrever-se" id="btnSubmit" onclick="confirmProfile();">
+</form>
  </div>
 </body>
 </html>
