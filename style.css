@@ -200,16 +200,6 @@ body{
     transition: 2s;
     margin: auto 0.5vw;
   }
-  .slide a{
-    font-weight: 900;
-    font-size: 0.85em;
-    color: rgb(0, 0, 0);
-  }
-  .slide a:hover{
-    font-weight: 900;
-    font-size: 0.925em;
-    color: rgb(50, 50, 50);
-  }
 .navigation-manual{
   position: absolute;
   width: 20%;
@@ -378,4 +368,72 @@ body{
   text-decoration: underline;
   color: rgb(255, 203, 203); 
   font-weight: 400;
+}
+.divHeadOptions{
+  width: 100%;
+  height: 20%;
+  margin: 0;
+  padding: 15vh auto;
+}
+.divHeadOptions :is(h1, h3){
+  color: azure;
+  text-align: center;
+  text-transform: uppercase;
+}
+.divHeadOptions h1{
+  font-size: 3vw;
+}
+.divHeadOptions h3{
+  font-size: 1.5vw;
+  font-weight: 200;
+  margin: 1vh auto;
+}
+.divOptions{
+  width: 50%;
+  height: 60%;
+  display: grid;
+  place-items: center;
+  float: left;
+  padding-top: 3vh;
+}
+.divOptions button, .btnLogOut button{
+  width: 40%;
+  height: 45%;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  font-weight: 600;
+  border-radius: 2.5vh;
+  color: #000000;
+  background-color: #c20000;
+}
+.divOptions button:hover{
+  color: white;
+}
+.divOptions h4{
+  max-width: 55%;
+  color: white;
+  font-variant: small-caps;
+  font-weight: 400;
+  margin-top: -10vh;
+  text-align: center;
+}
+.btnLogOut{
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+}
+.btnLogOut button{
+  width: 20%;
+  height: 85%;
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: red;
+  background-color: rgb(51, 46, 46);
+  border: solid 0.25vh black;
+}
+.btnLogOut button:hover{
+  background-color: #9e9e9e;
+  border: solid 0.5vh black;
 }
