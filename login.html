@@ -7,7 +7,7 @@
     <title>Tesla - Login Fan Prime</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <script src="scriptCadastro.js" defer></script>
+    <script src="scriptLogin.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -15,12 +15,13 @@
          <div class="menu-btn__burger"></div>
      </div>
      <a href="index.html"><img id="logo" src="https://www.freepnglogos.com/uploads/tesla-logo-png-20.png"></a>
-     <a id="cadastroLink" href="cadastro.html" target="">Cadastro</a>
+     <a id="loginLink" href="login.html" target="_self" style="display: none;">Login</a>
      <div id="myLeftSidenav" class="leftsidenav">
          <div>
          <a href="sobre.html" id="aboutId" class="listnav2">Sobre</a>
          <a href="contato.html" id="contatoId" class="listnav2">Contato</a>
-         <a href="cadastro.html" id="cadastroId" class="listnav2">Cadastro</a>
+         <a href="login.html" id="loginId" class="listnav2" style="display: none;">Login</a>
+         <a href="menuOptions.html" id="menuOptions" class="listnav2">Menu de Opções</a>
          </div>
          <div id="historyTab">
              <img src="https://lh5.googleusercontent.com/proxy/7QJOBNT5R2TuFOGUnes6e738yzRMbei3m6-V3FCC-scdFsfOEKhib_grYf4U7kgFBBHLwvtGdHErk9112OnKIjsf5xvtEA8IAoWRrbw=s0-d">
@@ -82,10 +83,11 @@
  <div class="bodyDiv">
   <form class="box-formCadastro">
     <h1 id="idHeadCadastro">Login</h1>
-    <input type="text" placeholder="UserName" class="classCadastro" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
-    <input type="password" placeholder="Senha" title="A senha deve conter pelo menos uma letra maiúscula, um número e deve conter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
-    <input type="button" value="Inscrever-se" id="btnSubmit" onclick="confirmProfile();">
-</form>
+    <input type="text" placeholder="UserName" class="classCadastro" id="nickId" onkeypress="enterFuncMid(event)">
+    <input type="password" placeholder="Senha" title="A senha deve conter pelo menos uma letra maiúscula, um número e deve conter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFunc(event)">
+    <input type="button" value="Entrar" id="btnSubmit" onclick="confirmProfile();">
+    <a href="cadastro.html">Não possui uma conta? Crie uma agora mesmo</a>
+  </form>
  </div>
 </body>
 </html>

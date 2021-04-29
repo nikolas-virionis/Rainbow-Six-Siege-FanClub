@@ -42,23 +42,23 @@ body{
     transition: 0.5s;
     opacity: 1;
 }
-.header #cadastroLink{
+.header #loginLink{
     float: right;
     padding: 2vh;
     margin-top: 3vh;
     margin-right: 2vw;
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: #211c1c;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
     text-decoration: underline;
     transition: 0.75s;
     opacity: 1;
 }
-.header #cadastroLink:hover{
-    font-size: 1.4em;
-    color: black;
+.header #loginLink:hover{
     border-radius: 2vh;
+    font-size: 1.5em;
+    color: black;
     text-decoration: none;
     border: rgb(232, 232, 232) outset 0.1vh;
 }
@@ -297,6 +297,10 @@ body{
   border-radius: 1vw;
   font-family: Quicksand;
 }
+.box-formCadastro input::placeholder{
+  color: #fff;
+  opacity: 0.75;
+}
 .box-formCadastro h1{
   text-transform: uppercase;
   font-weight: 500;
@@ -318,7 +322,7 @@ body{
   outline: none;
   color: white;
   border-radius: 2vw;
-  transition: 0.25s;
+  transition: 0.4s;
 }
 .box-formCadastro .classCadastro:focus{
   width: 32vw;
@@ -349,10 +353,29 @@ body{
   outline: none;
   color: white;
   border-radius: 2vw;
-  transition: 0.25s;
+  transition: 0.5s;
   cursor: pointer;
 }
 .box-formCadastro #btnSubmit:hover{
   background: #ff0000;
   border-color: black;
+}
+.box-formCadastro a{
+  font-size: 1.2vw;
+  text-align: center;
+  margin-top: 2vh;
+  background: none;
+  text-decoration: underline;
+  color: azure; 
+  font-weight: 300;
+  transition: 0.5s;
+}
+.box-formCadastro a:hover{
+  font-size: 1.25vw;
+  text-align: center;
+  margin-top: 2vh;
+  background: none;
+  text-decoration: underline;
+  color: rgb(255, 203, 203); 
+  font-weight: 400;
 }

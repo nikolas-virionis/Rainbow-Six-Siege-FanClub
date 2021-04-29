@@ -1,4 +1,14 @@
-let setInter, timer = 0, menu = document.querySelector(".menu-btn"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+let setInter, timer = 0, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+if (logins === '1') {
+  loginLink.style.display = "none";
+  loginId.style.display = "none";
+  menuOptions.style.display = "block"
+}
+else{
+  loginLink.style.display = "block";
+  loginId.style.display = "block";
+  menuOptions.style.display = "none"
+}
 document.addEventListener('mousemove', () => {
     menu.style.opacity = "1";
     document.documentElement.style.cursor = 'auto';
@@ -53,4 +63,3 @@ const funcSetInterval = () => {
   counter++;
 }, 8000);
 }
-cadastroLink.style.display = "block";
