@@ -480,3 +480,54 @@ body{
   text-transform: uppercase;
   padding: 15vh auto;
 }
+.contatoHead{
+  color: azure;
+  text-align: center;
+  width: 100%;
+  height: 15%;
+  padding-top: 5vh;
+}
+.contatoHead :is(h1, h3){
+  width: fit-content;
+  margin: auto;
+  text-transform: uppercase;
+}
+.contatoBodyL, .contatoBodyR{
+  width: 50%;
+  height: 79%;
+  display: grid;
+  place-items: center;
+  float: left;
+  color: #fff;
+}
+.divEmail{
+  align-items: center;
+  margin-top: -20vh;
+  font-size: 2vw;
+}
+.divEmail div{
+  text-align: center;
+  font-size: 2.5vw;
+  width: fit-content;
+  margin: auto;
+}
+.contatoBodyL img{
+  height: 12.5vh;
+  width: 17.5vh;
+  float: left;
+  margin-left: 4.5vw;
+}
+.contatoBodyR img{
+  height: 12.5vh;
+  width: 17.5vh;
+  float: left;
+  margin-left: 1.5vw;
+}
+:is(.contatoBodyL, .contatoBodyR) h3{
+  max-width: 40vw;
+  margin: -20vh auto;
+  font-size: 2.5vw;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
