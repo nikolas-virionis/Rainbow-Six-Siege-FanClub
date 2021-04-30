@@ -26,10 +26,10 @@ function confirmProfile(){
         alert("Email Inválido");
         emailId.value = "";
     }
-    // else if (loginInfo.length > 0 && emailId.value == loginInfo[0].email || emailId.value == loginInfo[1].email) {
-    //     alert("Perfil já existente com esse Email");
-    //     window.location.href = "login.html";
-    // }
+    else if (loginInfo.length > 0 && emailId.value == loginInfo[0].email || loginInfo.length > 1 && emailId.value == loginInfo[1].email) {
+        alert("Perfil já existente com esse Email");
+        window.location.href = "login.html";
+    }
     else{//perfil válido, e entrada bem sucedida
         nome = nomeId.value;
         username = nickId.value;

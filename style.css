@@ -298,7 +298,8 @@ body{
   font-weight: 500;
   color: white;
   position: sticky;
-  width: 100%;
+  width: fit-content;
+  margin: auto;
   z-index: 10;
   background: none;
 }
@@ -379,7 +380,8 @@ body{
 }
 .divHeadOptions :is(h1, h3){
   color: azure;
-  text-align: center;
+  width: fit-content;
+  margin: auto;
   text-transform: uppercase;
 }
 .divHeadOptions h1{
@@ -464,17 +466,17 @@ body{
   padding: 15vh auto;
 }
 .frasesDivHead h1{
-  width: 80%;
+  width: fit-content;
   font-size: 3.25vw;
+  margin: auto;
   text-align: center;
   text-transform: uppercase;
-  margin: 0;
   padding: 15vh auto;
 }
 .frasesDivHead h3{
   font-size: 1.65vw;
   text-align: center;
+  margin: auto;
   text-transform: uppercase;
-  margin: 0;
   padding: 15vh auto;
 }

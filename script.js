@@ -1,4 +1,4 @@
-let setInter, timer = 0, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+let setInter, timer = 0, bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain'), menuOpen = false, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn__burger"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
 if (logins === '1') {
   loginLink.style.display = "none";
   loginId.style.display = "none";
@@ -33,7 +33,6 @@ const dimInterval = () => {
 }
 setInter = setInterval(dimInterval, 1000);
 const menuBtn = document.querySelector('.menu-btn');
-let menuOpen = false;
 menuBtn.addEventListener('click', () => {
   if(!menuOpen) {
     leftNavBar.style.width = "25vw";
@@ -42,6 +41,7 @@ menuBtn.addEventListener('click', () => {
     clearInterval(setInter);
     menuBtn.classList.add('open');
     clearInterval(setInter);
+    closeNavAlternative();
   } 
   else {
     document.getElementById("myLeftSidenav").style.width = "0";
@@ -62,4 +62,15 @@ const funcSetInterval = () => {
   if(counter >= 4) counter = 0;
   counter++;
 }, 8000);
+}
+const closeNavAlternative = () => {
+  document.addEventListener('click', (e) => {
+    if (e.target === bodydiv || e.target === bodydiv.firstElementChild || e.target === bodydiv.firstElementChild.nextElementSibling || e.target === bodydiv.lastElementChild || e.target === bodydiv.lastElementChild.previousElementSibling) {
+      document.getElementById("myLeftSidenav").style.width = "0";
+      menuOpen = false;
+      clearInterval(setInter);
+      setInter = setInterval(dimInterval, 1000);
+      menuBtn.classList.remove('open');
+    }
+  })
 }
