@@ -8,7 +8,10 @@ const validatePassword = senha => {
     senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0|| senha.value.indexOf('3') >= 0|| senha.value.indexOf('4') >= 0|| senha.value.indexOf('5') >= 0|| senha.value.indexOf('6') >= 0|| senha.value.indexOf('7') >= 0|| senha.value.indexOf('8') >= 0|| senha.value.indexOf('9') >= 0
     senhaValida = senha.value.length >= 8 && senha.value.length <= 16 && senha.value !== senha.value.toLowerCase() && senhaComNum && !(senha.value.includes(' '));
     if (senha.value == "" || senhaValida) passwordId.classList = 'classCadastro';
-    else passwordId.classList = 'classCadastroError';
+    else {
+        passwordId.classList = 'classCadastroError';
+        alert("Senha não contém todos os requisitos: \n Ter entre 8 e 16 caracteres \n Ter ao menos um número \n Ter ao menos uma letra maiúscula");
+}
 }
 const confirmPassword = () => {
     if (passwordId.value === passwordIdConfirm.value) passwordIdConfirm.classList = 'classCadastro';

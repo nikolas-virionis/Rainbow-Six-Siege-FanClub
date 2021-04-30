@@ -492,7 +492,10 @@ body{
   margin: auto;
   text-transform: uppercase;
 }
-.contatoBodyL, .contatoBodyR{
+.contatoHead h3 {
+  margin-top: 2.5vh;
+}
+.contatoBodyL, .contatoBodyR, .sobreBodyL, .sobreBodyR{
   width: 50%;
   height: 79%;
   display: grid;
@@ -530,4 +533,31 @@ body{
   text-align: center;
   width: fit-content;
   margin: auto;
+}
+.headSobre{
+  text-align: center;
+  color: azure;
+  width: fit-content;
+  margin: auto;
+  padding-top: 5vh;
+}
+.sobreBodyL img{
+  height: 50%;
+  width: 50%;
+}
+.sobreBodyR div{
+  margin: auto;
+  height: fit-content;
+  width: 80%;
+  font-size: 2vw;
+  font-variant: small-caps;
+  line-height: 5vh;
+}
+.sobreBodyR a{
+  color: white;
+  text-decoration: none;
+}
+.sobreBodyR a:hover{
+  color: rgb(225, 224, 224);
+  text-decoration: underline;
 }

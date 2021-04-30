@@ -1,4 +1,4 @@
-let setInter, timer = 0, bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain'), menuOpen = false, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn__burger"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+let setInter, timer = 0, header = document.querySelector('.header'), bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain'), menuOpen = false, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn__burger"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
 if (logins === '1') {
   loginLink.style.display = "none";
   loginId.style.display = "none";
@@ -65,7 +65,7 @@ const funcSetInterval = () => {
 }
 const closeNavAlternative = () => {
   document.addEventListener('click', (e) => {
-    if (e.target === bodydiv || e.target === bodydiv.firstElementChild || e.target === bodydiv.firstElementChild.nextElementSibling || e.target === bodydiv.lastElementChild || e.target === bodydiv.lastElementChild.previousElementSibling) {
+    if (e.target === bodydiv || e.target === header || e.target === header.lastElementChild || e.target === bodydiv.firstElementChild || e.target === bodydiv.firstElementChild.nextElementSibling || e.target === bodydiv.lastElementChild || e.target === bodydiv.lastElementChild.previousElementSibling) {
       document.getElementById("myLeftSidenav").style.width = "0";
       menuOpen = false;
       clearInterval(setInter);
