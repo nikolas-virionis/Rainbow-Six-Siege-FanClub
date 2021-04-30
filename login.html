@@ -83,8 +83,8 @@
  <div class="bodyDiv">
   <form class="box-formCadastro">
     <h1 id="idHeadCadastro">Login</h1>
-    <input type="text" placeholder="UserName" class="classCadastro" id="nickId" onkeypress="enterFuncMid(event)">
-    <input type="password" placeholder="Senha" title="A senha deve conter pelo menos uma letra maiúscula, um número e deve conter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFunc(event)">
+    <input type="text" placeholder="UserName" autocomplete="off" class="classCadastro" id="nickId" onkeypress="enterFuncMid(event)">
+    <input type="password" placeholder="Senha" autocomplete="off" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFunc(event)">
     <input type="button" value="Entrar" id="btnSubmit" onclick="confirmProfile();">
     <a href="cadastro.html">Não possui uma conta? Crie uma agora mesmo</a>
   </form>
