@@ -1,4 +1,18 @@
-let setInter, timer = 0, header = document.querySelector('.header'), bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain'), menuOpen = false, loginInfoJSONsend, loginInfoJSON = localStorage.getItem('loginInfo'), loginInfo = JSON.parse(loginInfoJSON) || [], logins = sessionStorage.getItem("logins") ?? '0', menu = document.querySelector(".menu-btn__burger"), counter = 1, leftNavBar = document.querySelector('.leftsidenav'), setIntervalVar, valorSelecionado, rbs = document.querySelectorAll('input[name="radio-btn"]');
+let setInter, 
+timer = 0, 
+header = document.querySelector('.header'), 
+bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain') ?? document.querySelector('.bodyDivMotive'), 
+menuOpen = false, 
+loginInfoJSONsend, 
+loginInfoJSON = localStorage.getItem('loginInfo'), 
+loginInfo = JSON.parse(loginInfoJSON) || [], 
+logins = sessionStorage.getItem("logins") ?? '0', 
+menu = document.querySelector(".menu-btn__burger"), 
+counter = 1, 
+leftNavBar = document.querySelector('.leftsidenav'), 
+setIntervalVar, 
+valorSelecionado, 
+rbs = document.querySelectorAll('input[name="radio-btn"]');
 if (logins === '1') {
   loginLink.style.display = "none";
   loginId.style.display = "none";
@@ -43,13 +57,7 @@ menuBtn.addEventListener('click', () => {
     clearInterval(setInter);
     closeNavAlternative();
   } 
-  else {
-    document.getElementById("myLeftSidenav").style.width = "0";
-    menuOpen = false;
-    clearInterval(setInter);
-    setInter = setInterval(dimInterval, 1000);
-    menuBtn.classList.remove('open');
-}
+  else closeNav();
 });
 const radioChange = num => {
   counter = num;
@@ -65,12 +73,28 @@ const funcSetInterval = () => {
 }
 const closeNavAlternative = () => {
   document.addEventListener('click', (e) => {
-    if (e.target === bodydiv || e.target === header || e.target === header.lastElementChild || e.target === bodydiv.firstElementChild || e.target === bodydiv.firstElementChild.nextElementSibling || e.target === bodydiv.lastElementChild || e.target === bodydiv.lastElementChild.previousElementSibling) {
-      document.getElementById("myLeftSidenav").style.width = "0";
-      menuOpen = false;
-      clearInterval(setInter);
-      setInter = setInterval(dimInterval, 1000);
-      menuBtn.classList.remove('open');
-    }
+    if (e.target === header || 
+      e.target === header.lastElementChild || 
+      e.target === bodydiv || 
+      e.target === bodydiv.firstElementChild || 
+      e.target === bodydiv.firstElementChild.nextElementSibling || 
+      e.target === bodydiv.firstElementChild.nextElementSibling.nextElementSibling || 
+      e.target === bodydiv.lastElementChild || 
+      e.target === bodydiv.lastElementChild.previousElementSibling || 
+      e.target === bodydiv.firstElementChild.nextElementSibling.firstElementChild || 
+      e.target === bodydiv.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild || 
+      e.target === bodydiv.lastElementChild.firstElementChild || 
+      e.target === bodydiv.lastElementChild.previousElementSibling.firstElementChild || 
+      e.target === bodydiv.firstElementChild.nextElementSibling.lastElementChild || 
+      e.target === bodydiv.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild || 
+      e.target === bodydiv.lastElementChild.lastElementChild || 
+      e.target === bodydiv.lastElementChild.previousElementSibling.lastElementChild) closeNav();
   })
+}
+const closeNav = () => {
+  document.getElementById("myLeftSidenav").style.width = "0";
+  menuOpen = false;
+  clearInterval(setInter);
+  setInter = setInterval(dimInterval, 1000);
+  menuBtn.classList.remove('open');
 }

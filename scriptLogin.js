@@ -1,4 +1,6 @@
-let invalidPassword = 0, confirmEmailLogin, loginTypeNick = sessionStorage.getItem('loginTypeNick') ?? true;
+let invalidPassword = 0, 
+confirmEmailLogin, 
+loginTypeNick = sessionStorage.getItem('loginTypeNick') ?? true;
 if (loginTypeNick === 'false') nickId.placeholder = 'Email';
 historyTab.style.marginTop = "12.5vh";
 loginLink.style.display = "none";

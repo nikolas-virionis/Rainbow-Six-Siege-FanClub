@@ -1,4 +1,9 @@
-let emailValido, senhaValida, nome, username, email, senha;
+let emailValido, 
+senhaValida, 
+nome, 
+username, 
+email, 
+senha;
 const validateEmail = email => {
     emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;
     if (email.value == "" || emailValido) emailId.classList = 'classCadastro';
