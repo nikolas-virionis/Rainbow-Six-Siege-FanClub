@@ -23,14 +23,16 @@ else{
   loginId.style.display = "block";
   menuOptions.style.display = "none"
 }
-document.addEventListener('mousemove', () => {
+const actionDone = () => {
     menu.style.opacity = "1";
     document.documentElement.style.cursor = 'auto';
     document.body.style.filter = "brightness(1)";
     clearInterval(setInter);
     timer = 0;
     setInter = setInterval(dimInterval, 1000);
-})
+}
+document.addEventListener('mousemove', () => actionDone())
+document.addEventListener('keypress', () => actionDone())
 const dimInterval = () => {
     if (menuOpen === true) {
       menu.style.opacity = "1";

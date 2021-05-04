@@ -11,3 +11,4 @@ const logOut = () => {
         window.location.href = "login.html";
     }
 }
+h1Options.innerText = `Olá, ${loginInfo[loginInfo.length-1].nome}`

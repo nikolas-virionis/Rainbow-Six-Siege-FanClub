@@ -276,6 +276,9 @@ body{
   width: 100vw;
   z-index: 1;
 }
+#cadastro2{
+  display: none;
+}
 .box-formCadastro{
   width: 35vw;
   height: fit-content;
@@ -302,6 +305,17 @@ body{
   margin: auto;
   z-index: 10;
   background: none;
+}
+#datalistModels {
+  position: absolute;
+  background-color: #111;
+}
+
+option {
+  background-color: #111;
+  padding: 4px;
+  margin-bottom: 1px;
+  cursor: pointer;
 }
 .box-formCadastro .classCadastro{
   border: 0;
@@ -376,7 +390,6 @@ body{
   width: 100%;
   height: 20%;
   margin: 0;
-  padding: 15vh auto;
 }
 .divHeadOptions :is(h1, h3){
   color: azure;
@@ -400,7 +413,7 @@ body{
   float: left;
   padding-top: 3vh;
 }
-.divOptions button, .btnLogOut button{
+.divOptions button{
   width: 40%;
   height: 45%;
   cursor: pointer;
@@ -408,17 +421,30 @@ body{
   border: none;
   font-weight: 600;
   border-radius: 2.5vh;
+  font-size: 2vw;
   color: #000000;
   background-color: #c20000;
 }
 .divOptions button:hover{
   color: white;
 }
+#logOutBtn{
+  font-size: 2vw;
+  font-weight: 600;
+  color: red;
+  background-color: rgb(51, 46, 46);
+  border: solid 0.25vh black;
+}
+#logOutBtn:hover{
+  background-color: #9e9e9e;
+  border: solid 0.5vh black;
+}
 .divOptions h4{
   max-width: 55%;
   color: white;
   font-variant: small-caps;
   font-weight: 400;
+  font-size: 1.6vw;
   margin-top: -10vh;
   text-align: center;
 }
@@ -428,18 +454,20 @@ body{
   display: grid;
   place-items: center;
 }
-.btnLogOut button{
-  width: 20%;
-  height: 85%;
-  font-size: 1.5vw;
-  font-weight: 600;
-  color: red;
-  background-color: rgb(51, 46, 46);
-  border: solid 0.25vh black;
+.btnLogOut a{
+  width: 10%;
+  height: 170%;
+  margin: -10vh auto;
 }
-.btnLogOut button:hover{
-  background-color: #9e9e9e;
-  border: solid 0.5vh black;
+.btnLogOut a img{
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.btnLogOut a:hover{
+  filter: brightness(2);
 }
 .frasesDiv{
   width: 50%;

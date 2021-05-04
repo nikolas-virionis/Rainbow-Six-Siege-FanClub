@@ -3,7 +3,11 @@ senhaValida,
 nome, 
 username, 
 email, 
-senha;
+senha,
+idade,
+favcarro,
+anoFan;
+nomeId.focus();
 const validateEmail = email => {
     emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;
     if (email.value == "" || emailValido) emailId.classList = 'classCadastro';
@@ -13,13 +17,10 @@ const validatePassword = senha => {
     senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0|| senha.value.indexOf('3') >= 0|| senha.value.indexOf('4') >= 0|| senha.value.indexOf('5') >= 0|| senha.value.indexOf('6') >= 0|| senha.value.indexOf('7') >= 0|| senha.value.indexOf('8') >= 0|| senha.value.indexOf('9') >= 0
     senhaValida = senha.value.length >= 8 && senha.value.length <= 16 && senha.value !== senha.value.toLowerCase() && senhaComNum && !(senha.value.includes(' '));
     if (senha.value == "" || senhaValida) passwordId.classList = 'classCadastro';
-    else {
-        passwordId.classList = 'classCadastroError';
-        alert("Senha não contém todos os requisitos: \n Ter entre 8 e 16 caracteres \n Ter ao menos um número \n Ter ao menos uma letra maiúscula");
-}
+    else passwordId.classList = 'classCadastroError';
 }
 const confirmPassword = () => {
-    if (passwordId.value === passwordIdConfirm.value) passwordIdConfirm.classList = 'classCadastro';
+    if (passwordId.value === passwordIdConfirm.value || passwordIdConfirm.value === "") passwordIdConfirm.classList = 'classCadastro';
     else passwordIdConfirm.classList = 'classCadastroError';
 }
 function confirmProfile(){
@@ -39,27 +40,44 @@ function confirmProfile(){
         window.location.href = "login.html";
     }
     else{//perfil válido, e entrada bem sucedida
-        nome = nomeId.value;
-        username = nickId.value;
-        email = emailId.value;
-        senha = passwordId.value;
-        loginInfo.push({
-            nome,
-            username,
-            email,
-            senha
-        });
-        loginInfoJSONsend = JSON.stringify(loginInfo);
-        localStorage.setItem('loginInfo', loginInfoJSONsend);
-        logins = "1"
-        sessionStorage.setItem("logins", logins);
-        window.location.href = "menuOptions.html";
+        cadastro1.style.display = "none";
+        cadastro2.style.display = "block";
+        inputlist.focus();
     }
 }
-const enterFunc = event => event.key === "Enter" ? confirmProfile() : '';
+const enterFunc = (event, num) => {
+    if (num === 1) event.key === "Enter" ? confirmProfile() : '';
+    else if (num === 2) event.key === "Enter" ? finalizarCadastro() : ''
+}
 function enterFuncMid(event, blur, focus) {
     if(event.key === "Enter"){
         document.getElementById(blur).blur();
         document.getElementById(focus).focus();
+    }
+}
+const finalizarCadastro = () => {
+    if (idadeId.value == "" || fanId.value == "" || datalistModels.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
+    else{
+        nome = nomeId.value;
+        username = nickId.value;
+        email = emailId.value;
+        senha = passwordId.value;
+        idade = idadeId.value;
+        favCarro = datalistModels.value;
+        anoFan = fanId.value;
+    loginInfo.push({
+        nome,
+        username,
+        email,
+        senha, 
+        idade,
+        favCarro,
+        anoFan 
+    });
+    loginInfoJSONsend = JSON.stringify(loginInfo);
+    localStorage.setItem('loginInfo', loginInfoJSONsend);
+    logins = "1"
+    sessionStorage.setItem("logins", logins);
+    window.location.href = "menuOptions.html";
     }
 }

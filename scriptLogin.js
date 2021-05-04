@@ -1,6 +1,7 @@
 let invalidPassword = 0, 
 confirmEmailLogin, 
 loginTypeNick = sessionStorage.getItem('loginTypeNick') ?? true;
+nickId.focus();
 if (loginTypeNick === 'false') nickId.placeholder = 'Email';
 historyTab.style.marginTop = "12.5vh";
 loginLink.style.display = "none";
@@ -9,10 +10,6 @@ function confirmProfile(){
     if (loginTypeNick !== 'false'){
         if (nickId.value == "" || passwordId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
         else if (loginInfo.length > 0 && nickId.value !== loginInfo[0].username || loginInfo.length > 1 &&  nickId.value !== loginInfo[1].username) {
-            alert("Username Inválido");
-            nickId.value = "";
-        }
-        else if (loginInfo.length > 0 && passwordId.value !== loginInfo[0].senha || loginInfo.length > 1 && passwordId.value !== loginInfo[1].senha) {
             invalidPassword++
             if (invalidPassword > 2) {
                 confirmEmailLogin = confirm('Prefere realizar o login com o email cadastrado?');
@@ -24,7 +21,12 @@ function confirmProfile(){
                     window.location.reload();
                     return;
                 }
-            }    
+            } 
+            alert("Username Inválido");
+            nickId.value = "";
+        }
+        else if (loginInfo.length > 0 && passwordId.value !== loginInfo[0].senha || loginInfo.length > 1 && passwordId.value !== loginInfo[1].senha) {
+               
             alert("Senha Inválida");
             passwordId.value = "";
         }

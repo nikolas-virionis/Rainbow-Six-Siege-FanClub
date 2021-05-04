@@ -81,14 +81,30 @@
      </div>
  </div>
  <div class="bodyDiv">
-  <form class="box-formCadastro">
-    <h1 id="idHeadCadastro">Cadastro</h1>
+  <form id="cadastro1" class="box-formCadastro">
+    <h1 class="idHeadCadastro">Cadastro</h1>
     <input type="text" placeholder="Nome" class="classCadastro" autocomplete="off" id="nomeId" onkeypress="enterFuncMid(event, 'nomeId', 'nickId')">
     <input type="text" placeholder="UserName" class="classCadastro" autocomplete="off" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
     <input type="text" placeholder="Email" class="classCadastro" autocomplete="off" id="emailId" onkeyup="validateEmail(emailId)" onkeypress="enterFuncMid(event, 'emailId', 'passwordId')">
     <input type="password" placeholder="Senha" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
-    <input type="password" placeholder="Confirmar Senha" class="classCadastro" id="passwordIdConfirm" minlength="8" maxlength="16" onkeyup="confirmPassword();" onkeypress="enterFunc(event)">
-    <input type="button" value="Inscrever-se" id="btnSubmit" onclick="confirmProfile();">
+    <input type="password" placeholder="Confirmar Senha" class="classCadastro" id="passwordIdConfirm" minlength="8" maxlength="16" onkeyup="confirmPassword();" onkeypress="enterFunc(event, 1)">
+    <input type="button" value="Prosseguir" id="btnSubmit" onclick="confirmProfile();">
+</form>
+<form id="cadastro2" class="box-formCadastro">
+  <h1 class="idHeadCadastro">Cadastro</h1>
+  <input id="inputlist" list="datalistModels" type="text" onkeypress="enterFuncMid(event, 'datalistModels', 'idadeId')" placeholder="Modelo Favorito da Tesla..." class="classCadastro">
+  <datalist id="datalistModels">
+    <option value="Model S">
+    <option value="Model 3">
+    <option value="Model X">
+    <option value="Model Y">
+    <option value="Roadster">
+    <option value="Semi">
+    <option value="CyberTruck">
+  </datalist>
+  <input type="number" placeholder="Idade" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')">
+  <input type="number" placeholder="Ano que começou a ser fã" class="classCadastro" autocomplete="off" id="fanId" onkeypress="enterFunc(event, 2)">
+  <input type="button" value="Inscrever-se" id="btnSubmit" onclick="finalizarCadastro();">
 </form>
  </div>
 </body>
