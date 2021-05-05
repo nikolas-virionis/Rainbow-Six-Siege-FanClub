@@ -1,4 +1,4 @@
-let confirmLogOut;
+let confirmLogOut, arrayCarros = ['CyberTruck', 'Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi'];
 menuOptions.style.display = "none";
 historyTab.style.marginTop = "12.5vh";
 const btnOptions = link => {
@@ -12,3 +12,6 @@ const logOut = () => {
     }
 }
 h1Options.innerText = `Olá, ${loginInfo[loginInfo.length-1].nome}`
+if (arrayCarros.includes(loginInfo[loginInfo.length-1].favCarro)) {
+    linkTesla.href += `${((loginInfo[loginInfo.length-1].favCarro).split(" ").join("")).toLowerCase()}`;
+}

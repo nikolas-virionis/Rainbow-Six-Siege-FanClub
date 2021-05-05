@@ -279,6 +279,16 @@ body{
 #cadastro2{
   display: none;
 }
+.overform{
+  overflow-x: hidden;
+  max-height: 75vh;
+  width: 40vw;
+}
+.overform h1{
+  position: sticky;
+  top: 1vh;
+  background-color: #222;
+}
 .box-formCadastro{
   width: 35vw;
   height: fit-content;
@@ -291,6 +301,12 @@ body{
   text-align: center;
   border-radius: 1vw;
   font-family: Quicksand;
+}
+.btnsEdit{
+  display: flex;
+}
+#btnCancel, #btnSave{
+  display: none;
 }
 .box-formCadastro input::placeholder{
   color: #fff;
@@ -305,17 +321,6 @@ body{
   margin: auto;
   z-index: 10;
   background: none;
-}
-#datalistModels {
-  position: absolute;
-  background-color: #111;
-}
-
-option {
-  background-color: #111;
-  padding: 4px;
-  margin-bottom: 1px;
-  cursor: pointer;
 }
 .box-formCadastro .classCadastro{
   border: 0;
@@ -332,7 +337,7 @@ option {
   transition: 0.4s;
 }
 .box-formCadastro .classCadastro:focus{
-  width: 32vw;
+  width: 31vw;
   border-color: white;
 }
 .classCadastroError{
@@ -349,7 +354,7 @@ option {
   border-radius: 2vw;
   transition: 0.25s;
 }
-.box-formCadastro #btnSubmit{
+.box-formCadastro #btnSubmit, .btnsEdit button{
   border: 0;
   background: none;
   display: block;
@@ -363,9 +368,16 @@ option {
   transition: 0.5s;
   cursor: pointer;
 }
-.box-formCadastro #btnSubmit:hover{
+:is(.box-formCadastro #btnSubmit, .btnsEdit button):hover{
   background: #ff0000;
   border-color: black;
+}
+.btnsEdit a {
+  position: relative;
+  text-decoration: none;
+  top: 1vh;
+  height: 100%;
+  width: 17%;
 }
 .box-formCadastro a{
   font-size: 1.2vw;
@@ -475,13 +487,20 @@ option {
   float: left;
   display: grid;
   place-items: center;
-  place-content: center;
   font-family: 'Cormorant Garamond';
   color: azure;
 }
 .frasesDiv p{
   width: 75%;
   text-align: center;
+  margin-top: 10vh;
+}
+.frasesDiv h4{
+  text-align: center;
+  margin-top: -15vh;
+  font-variant: small-caps;
+  line-height: 5vh;
+  border-top: #fff 0.1vh solid;
 }
 .frasesDivHead{
   width: 100%;

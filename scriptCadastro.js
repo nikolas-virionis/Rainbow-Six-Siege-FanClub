@@ -56,14 +56,14 @@ function enterFuncMid(event, blur, focus) {
     }
 }
 const finalizarCadastro = () => {
-    if (idadeId.value == "" || fanId.value == "" || datalistModels.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
+    if (idadeId.value == "" || fanId.value == "" || inputlist.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
     else{
         nome = nomeId.value;
         username = nickId.value;
         email = emailId.value;
         senha = passwordId.value;
         idade = idadeId.value;
-        favCarro = datalistModels.value;
+        favCarro = inputlist.value;
         anoFan = fanId.value;
     loginInfo.push({
         nome,

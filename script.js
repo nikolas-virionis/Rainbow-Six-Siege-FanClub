@@ -32,7 +32,7 @@ const actionDone = () => {
     setInter = setInterval(dimInterval, 1000);
 }
 document.addEventListener('mousemove', () => actionDone())
-document.addEventListener('keypress', () => actionDone())
+// document.addEventListener('keypress', () => actionDone())
 const dimInterval = () => {
     if (menuOpen === true) {
       menu.style.opacity = "1";
@@ -75,7 +75,8 @@ const funcSetInterval = () => {
 }
 const closeNavAlternative = () => {
   document.addEventListener('click', (e) => {
-    if (e.target === header || 
+try{
+  if (e.target === header || 
       e.target === header.lastElementChild || 
       e.target === bodydiv || 
       e.target === bodydiv.firstElementChild || 
@@ -91,8 +92,12 @@ const closeNavAlternative = () => {
       e.target === bodydiv.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild || 
       e.target === bodydiv.lastElementChild.lastElementChild || 
       e.target === bodydiv.lastElementChild.previousElementSibling.lastElementChild) closeNav();
-  })
+  }
+  catch(e){
+
+  }
 }
+)}
 const closeNav = () => {
   document.getElementById("myLeftSidenav").style.width = "0";
   menuOpen = false;
