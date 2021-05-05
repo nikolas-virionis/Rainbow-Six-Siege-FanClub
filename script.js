@@ -32,7 +32,7 @@ const actionDone = () => {
     setInter = setInterval(dimInterval, 1000);
 }
 document.addEventListener('mousemove', () => actionDone())
-// document.addEventListener('keypress', () => actionDone())
+document.addEventListener('keypress', () => actionDone())
 const dimInterval = () => {
     if (menuOpen === true) {
       menu.style.opacity = "1";
