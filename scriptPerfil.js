@@ -1,4 +1,4 @@
-let readOnlyData = JSON.parse(sessionStorage.getItem("readOnlyData")) ?? true, menuVoltar = JSON.parse(sessionStorage.getItem('menuVoltar')) ?? false, confirmBtn = document.querySelector('#btnConfirm'), confirmSave, emailValido, senhaValida;
+let readOnlyData = JSON.parse(sessionStorage.getItem("readOnlyData")) ?? true, confirmBtn = document.querySelector('#btnConfirm'), confirmSave, emailValido, senhaValida;
 nomeId.readOnly = readOnlyData;
 nickId.readOnly = readOnlyData;
 emailId.readOnly = readOnlyData;
@@ -32,24 +32,26 @@ else {
     btnCancel.style.display = "flex";
     btnSave.style.display = "flex";
 }
-if (menuVoltar) {
-    window.location.href = "menuOptions.html";
-    sessionStorage.removeItem('menuVoltar');
-}
 const editarDados = () => {
     sessionStorage.setItem('readOnlyData', JSON.stringify(false));
     window.location.reload();
 }
-function voltarMenu() {
-    sessionStorage.setItem('menuVoltar', JSON.stringify(true));
+const voltarMenu = (event) => {
+    event.preventDefault();
+    window.location.href = "menuOptions.html";
 }
 const cancelarEdição = () => {
     sessionStorage.removeItem('readOnlyData');
     window.location.reload();
 }
-const salvarEdição = () => {
-    confirmSave = confirm('Tem certeza que deseja Salvar as Alterações?');
-    if (confirmSave) {
+const salvarEdição = (event) => {
+        event.preventDefault();
+    if (idadeId.value == "" || fanId.value == "" || inputlist.value == "" || emailId.value == "" || passwordId.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
+    else if (!validateEmail(emailId)) alert("Email Inválido");
+    else if (!validatePassword(passwordId)) alert("Senha Inválida");
+    else{
+        confirmSave = confirm('Tem certeza que deseja Salvar as Alterações?');
+        if (confirmSave) {
             sessionStorage.removeItem('readOnlyData');
             loginInfo[loginInfo.length-1].nome = nomeId.value;
             loginInfo[loginInfo.length-1].username = nickId.value;
@@ -59,14 +61,19 @@ const salvarEdição = () => {
             loginInfo[loginInfo.length-1].favCarro = inputlist.value;
             loginInfo[loginInfo.length-1].anoFan = fanId.value;
             localStorage.setItem('loginInfo', JSON.stringify(loginInfo));
+            window.location.reload();
         }
     }
+}
+function prevent(event) {
+    event.preventDefault();
+}
 function enterFuncMid(event, blur, focus) {
     if(event.key === "Enter"){
         document.getElementById(blur).blur();
         document.getElementById(focus).focus();
+        prevent(event);
     }
-    return false;
 }
 const validateEmail = email => {
     emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;

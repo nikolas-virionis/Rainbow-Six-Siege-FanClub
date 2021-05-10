@@ -84,8 +84,8 @@
  <div class="bodyDiv">
   <form class="box-formCadastro">
     <h1 id="idHeadCadastro">Insira sua senha para continuar</h1>
-    <input type="password" placeholder="Senha" autocomplete="off" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
-    <input type="button" value="Entrar" id="btnSubmit" onclick="return verificarSenhaUser();">
+    <input type="password" placeholder="Senha" autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
+    <input type="button" value="Entrar" id="btnSubmit" onclick="verificarSenhaUser(event);">
   </form>
  </div>
 </body>
