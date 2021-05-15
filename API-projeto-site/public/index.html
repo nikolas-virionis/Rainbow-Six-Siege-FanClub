@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="deleteAllData.js" defer></script>
+</head>
+<body>
+    <div class="header">
+       <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+        </div>
+        <a href="index.html"><img id="logo" src="https://www.freepnglogos.com/uploads/tesla-logo-png-20.png"></a>
+        <a id="loginLink" href="login.html" target="">Login</a>
+        <div id="myLeftSidenav" class="leftsidenav">
+            <div>
+            <a href="sobre.html" id="aboutId" class="listnav2">Sobre</a>
+            <a href="contato.html" id="contatoId" class="listnav2">Contato</a>
+            <a href="login.html" id="loginId" class="listnav2">Login</a>
+            <a href="menuOptions.html" id="menuOptions" class="listnav2">Menu de Opções</a>
+            </div>
+            <div id="historyTab">
+                <img src="https://lh5.googleusercontent.com/proxy/7QJOBNT5R2TuFOGUnes6e738yzRMbei3m6-V3FCC-scdFsfOEKhib_grYf4U7kgFBBHLwvtGdHErk9112OnKIjsf5xvtEA8IAoWRrbw=s0-d">
+                <div class="slider">
+                    <div class="slides">
+                      <input type="radio" name="radio-btn" onchange="radioChange(1)" id="radio1">
+                      <input type="radio" name="radio-btn" onchange="radioChange(2)" id="radio2">
+                      <input type="radio" name="radio-btn" onchange="radioChange(3)" id="radio3">
+                      <input type="radio" name="radio-btn" onchange="radioChange(4)" id="radio4">
+                      <div class="slide first">
+                        Criação: <br>A Tesla teve sua origem em 2003, em São Franscisco, Califórnia, 
+                            quando um grupo de engenheiros visionários, incluindo o renomado empresário
+                            Elon Musk, se reuniram para mostrarem ao mundo que era possível projetar e 
+                            fabricar veículos totalmente elétricos... <br>
+                            
+                      </div>
+                      <div class="slide">
+                        Crise: <br>Em 2008, a empresa quase entrou em colapso devido a atrasos de 
+                                entrega e custos excessivos. A Tesla, então, anunciou que cortaria
+                                cerca de 24% do seu pessoal. Durante esse período, ela começou a 
+                                lutar para levantar os US $ 100 milhões para financiar seu Modelo S. 
+                                Na época, Elon Musk colocou seus últimos US $ 35 milhões na empresa 
+                                para tentar salvá-la de um desastre...<br>
+                            
+                      </div>
+                      <div class="slide">
+                        Superação: <br>Uma das primeiras fábricas da empresa, localizada em Fremont, 
+                                    Califórnia, foi essencial para a recuperação da Tesla. Ela foi 
+                                    responsável por produzir o Model S (2012), o Model X (2015) e 
+                                    Model 3 (2017). Além disso foi aberta uma nova fábrica, quase 7x maior, 
+                                    localizada em Nevada, a Gigafactory, inaugurada em junho de 2016.<br>
+                                    
+                      </div>
+                      <div class="slide">
+                        Atualidade: <br>A empresa vale mais de US$ 800 bilhões, preço maior do que o valor 
+                                    de Volkswagen, Toyota, Ford, Honda, GM, Fiat Chrysler, BMW, Mercedes-Benz, 
+                                    Nissan, Hyundai, Peugeot, Renault e KIA juntas – esse valor foi alcançado 
+                                    graças a um crescimento de mais de 700% em 2020 e mais 20% apenas neste 
+                                    início de ano.  <br>
+                                    
+                      </div>
+                    </div>
+                      <div class="navigation-manual">
+                      <label for="radio1" class="manual-btn"></label>
+                      <label for="radio2" class="manual-btn"></label>
+                      <label for="radio3" class="manual-btn"></label>
+                      <label for="radio4" class="manual-btn"></label>
+                      </div>
+                  </div>
+                </div>
+        </div>
+    </div>
+    <div class="bodyDivMain">
+      <div id="divIntro"></div>
+    </div>
+</body>
+</html>
