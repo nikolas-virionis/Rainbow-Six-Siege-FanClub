@@ -35,10 +35,10 @@ function confirmProfile(){
         alert("Email Inválido");
         emailId.value = "";
     }
-    else if (loginInfo.length > 0 && emailId.value == loginInfo[0].email || loginInfo.length > 1 && emailId.value == loginInfo[1].email) {
-        alert("Perfil já existente com esse Email");
-        window.location.href = "login.html";
-    }
+    // else if (loginInfo.length > 0 && emailId.value == loginInfo[0].email || loginInfo.length > 1 && emailId.value == loginInfo[1].email) {
+    //     alert("Perfil já existente com esse Email");
+    //     window.location.href = "login.html";
+    // }
     else{//perfil válido, e entrada bem sucedida
         cadastro1.style.display = "none";
         cadastro2.style.display = "block";
@@ -87,61 +87,25 @@ const finalizarCadastro = () => {
 }
 function cadastrar() {
     var formulario = new URLSearchParams(new FormData(form_cadastro));
-    // dando erro nesse fetch, resulta erro 404 porque localhost:3000/usuarios/cadastrar não existe
     fetch("/usuarios/cadastrar", {
         method: "POST",
         body: formulario
     }).then(function (response) {
         
         if (response.ok) {
-            entrar();
-            // window.location.href='login.html';
+            sessionStorage.username_usuario_meuapp = nickId.value;
+            sessionStorage.nome_usuario_meuapp = nomeId.value;
+            sessionStorage.carro_usuario_meuapp = inputlist.value;
+            sessionStorage.email_usuario_meuapp = emailId.value;
+            logins = "1";
+            sessionStorage.setItem("logins", logins);
+            window.location.href = 'menuOptions.html';
 
         } else {
-
             console.log('Erro de cadastro!');
             response.text().then(function (resposta) {
             });
-            finalizar_aguardar();
         }
     });
-
     return false;
-}
-
-function entrar() {
-    aguardar();
-    var formulario = new URLSearchParams(new FormData(form_login));
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        body: formulario
-    }).then(resposta => {
-
-        if (resposta.ok) {
-
-            resposta.json().then(json => {
-
-                sessionStorage.login_usuario_meuapp = json.login;
-                sessionStorage.nome_usuario_meuapp = json.nome;
-
-                window.location.href = 'menuOptions.html';
-            });
-
-        } else {
-
-            console.log('Erro de login!');
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizar_aguardar(texto);
-            });
-        }
-    });
-
-    return false;
-}
-function aguardar() {
-}
-
-function finalizar_aguardar() {
 }

@@ -11,8 +11,7 @@ const logOut = () => {
         window.location.href = "login.html";
     }
 }
-h1Options.innerText = `Olá, ${loginInfo[loginInfo.length-1].nome}`
-if (arrayCarros.includes(loginInfo[loginInfo.length-1].favCarro)) {
-    linkTesla.href += `${((loginInfo[loginInfo.length-1].favCarro).split(" ").join("")).toLowerCase()}`;
+h1Options.innerText = `Olá, ${sessionStorage.username_usuario_meuapp}`
+if (arrayCarros.includes(sessionStorage.carro_usuario_meuapp)) {
+    linkTesla.href += `${((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase()}.html`;
 }
-verificar_autenticacao();

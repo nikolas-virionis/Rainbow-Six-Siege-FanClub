@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <script src="scriptverificarUser.js" defer></script>
-    <script src="deleteAllData.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -82,10 +81,10 @@
      </div>
  </div>
  <div class="bodyDiv">
-  <form class="box-formCadastro">
+  <form id="form_verify" method="post" onsubmit="verificarSenhaUser(event);" class="box-formCadastro">
     <h1 id="idHeadCadastro">Insira sua senha para continuar</h1>
-    <input type="password" placeholder="Senha" autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
-    <input type="button" value="Entrar" id="btnSubmit" onclick="verificarSenhaUser(event);">
+    <input type="password" placeholder="Senha" name="senha" autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
+    <input type="submit" value="Entrar" id="btnSubmit">
   </form>
  </div>
 </body>

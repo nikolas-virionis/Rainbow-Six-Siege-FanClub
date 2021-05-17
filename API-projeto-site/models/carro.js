@@ -6,55 +6,55 @@ https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 */
 
 module.exports = (sequelize, DataTypes) => {
-    let Usuario = sequelize.define('Usuario',{
+    let Carros = sequelize.define('Carros',{
 		id: {
-			field: 'idUser',
+			field: 'idCarro',
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true
 		},		
-		nome: {
-			field: 'nome',
+		nomeCarro: {
+			field: 'nomeCarro',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		username: {
-			field: 'username',
-			type: DataTypes.STRING,
+		aceleração0_100: {
+			field: 'aceleração0_100',
+			type: DataTypes.FLOAT,
 			allowNull: false
 		},
-		email: {
-			field: 'email',
-			type: DataTypes.STRING,
+		aceleração400m: {
+			field: 'aceleração400m',
+			type: DataTypes.FLOAT,
 			allowNull: false
 		},
-		senha: {
-			field: 'senha',
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		carroFav: {
-			field: 'carroFav',
+		vMax: {
+			field: 'Vmax',
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
-		anoNasc: {
-			field: 'anoNasc',
+		chargeRange: {
+			field: 'chargeRange',
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
-		anoInicio: {
-			field: 'anoInicio',
+		peso: {
+			field: 'peso',
+			type: DataTypes.FLOAT,
+			allowNull: false
+		},
+		potencia: {
+			field: 'potencia',
 			type: DataTypes.INTEGER,
 			allowNull: false
 		}
 	}, 
 	{
-		tableName: 'usuario', 
+		tableName: 'carros', 
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,
 	});
 
-    return Usuario;
+    return Carros;
 };

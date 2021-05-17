@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <script src="scriptCadastro.js" defer></script>
-    <script src="deleteAllData.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -85,16 +84,16 @@
   <form id="form_cadastro" method="post" onsubmit="finalizarCadastro()">
     <div id="cadastro1" class="box-formCadastro">
     <h1 class="idHeadCadastro">Cadastro</h1>
-    <input type="text" placeholder="Nome" class="classCadastro" autocomplete="off" id="nomeId" onkeypress="enterFuncMid(event, 'nomeId', 'nickId')">
-    <input type="text" placeholder="UserName" class="classCadastro" autocomplete="off" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
-    <input type="text" placeholder="Email" class="classCadastro" autocomplete="off" id="emailId" onkeyup="validateEmail(emailId)" onkeypress="enterFuncMid(event, 'emailId', 'passwordId')">
-    <input type="password" placeholder="Senha" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
-    <input type="password" placeholder="Confirmar Senha" class="classCadastro" id="passwordIdConfirm" minlength="8" maxlength="16" onkeyup="confirmPassword();" onkeypress="enterFunc(event, 1)">
+    <input type="text" placeholder="Nome" name="nome" class="classCadastro" autocomplete="off" id="nomeId" onkeypress="enterFuncMid(event, 'nomeId', 'nickId')">
+    <input type="text" placeholder="UserName" name="username" class="classCadastro" autocomplete="off" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
+    <input type="text" placeholder="Email" name="email" class="classCadastro" autocomplete="off" id="emailId" onkeyup="validateEmail(emailId)" onkeypress="enterFuncMid(event, 'emailId', 'passwordId')">
+    <input type="password" placeholder="Senha" name="senha" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
+    <input type="password" placeholder="Confirmar Senha" name="senhaConfirm" class="classCadastro" id="passwordIdConfirm" minlength="8" maxlength="16" onkeyup="confirmPassword();" onkeypress="enterFunc(event, 1)">
     <input type="button" value="Prosseguir" class="btnSubmit" onclick="confirmProfile();">
 </div>
 <div id="cadastro2" class="box-formCadastro">
     <h1 class="idHeadCadastro">Cadastro</h1>
-  <input id="inputlist" list="datalistModels" autocomplete="off" type="text" onkeypress="enterFuncMid(event, 'datalistModels', 'idadeId')" placeholder="Modelo Favorito da Tesla..." class="classCadastro">
+  <input id="inputlist" list="datalistModels" name="carroFav" autocomplete="off" type="text" onkeypress="enterFuncMid(event, 'datalistModels', 'idadeId')" placeholder="Modelo Favorito da Tesla..." class="classCadastro">
   <datalist id="datalistModels">
     <option value="Model S">
     <option value="Model 3">
@@ -104,8 +103,8 @@
     <option value="Semi">
     <option value="CyberTruck">
   </datalist>
-  <input type="number" placeholder="Idade" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')">
-  <input type="number" placeholder="Ano que começou a ser fã" class="classCadastro" autocomplete="off" id="fanId" onkeypress="enterFunc(event, 2)">
+  <input type="number" placeholder="Ano que nasceu" name="anoNasc" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')">
+  <input type="number" placeholder="Ano que começou a ser fã" name="anoInicio" class="classCadastro" autocomplete="off" id="fanId" onkeypress="enterFunc(event, 2)">
   <input type="submit" value="Inscrever-se" class="btnSubmit">
 </div>
 </form>

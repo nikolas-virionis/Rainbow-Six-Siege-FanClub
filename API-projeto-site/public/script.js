@@ -3,9 +3,6 @@ timer = 0,
 header = document.querySelector('.header'), 
 bodydiv = document.querySelector('.bodyDiv') ?? document.querySelector('.bodyDivMain') ?? document.querySelector('.bodyDivMotive'), 
 menuOpen = false, 
-loginInfoJSONsend, 
-loginInfoJSON = localStorage.getItem('loginInfo'), 
-loginInfo = JSON.parse(loginInfoJSON) || [], 
 logins = sessionStorage.getItem("logins") ?? '0', 
 menu = document.querySelector(".menu-btn__burger"), 
 counter = 1, 
@@ -113,7 +110,7 @@ function verificar_autenticacao() {
     username_usuario = sessionStorage.username_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     
-    if (username_usuario == undefined)  {
+    if (!username_usuario)  {
         redirecionar_login();
     } else {
         h1Options.innerHTML = nome_usuario;

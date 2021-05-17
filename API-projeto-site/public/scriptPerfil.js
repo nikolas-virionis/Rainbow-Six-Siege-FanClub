@@ -88,4 +88,3 @@ const validatePassword = senha => {
     else passwordId.classList = 'classCadastroError';
     return senhaValida;
 }
-verificar_autenticacao();

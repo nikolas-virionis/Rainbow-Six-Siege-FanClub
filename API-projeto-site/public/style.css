@@ -418,14 +418,6 @@ body{
   font-weight: 200;
   margin: 1vh auto;
 }
-.divOptions{
-  width: 50%;
-  height: 60%;
-  display: grid;
-  place-items: center;
-  float: left;
-  padding-top: 3vh;
-}
 .divOptions button{
   width: 40%;
   height: 45%;
@@ -460,27 +452,6 @@ body{
   font-size: 1.6vw;
   margin-top: -10vh;
   text-align: center;
-}
-.btnLogOut{
-  width: 100%;
-  height: 10%;
-  display: grid;
-  place-items: center;
-}
-.btnLogOut a{
-  width: 10%;
-  height: 170%;
-  margin: -10vh auto;
-}
-.btnLogOut a img{
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  display: grid;
-  place-items: center;
-}
-.btnLogOut a:hover{
-  filter: brightness(2);
 }
 .frasesDiv{
   width: 50%;
@@ -660,4 +631,41 @@ body{
   height: 85vh;
   width: 100vw;
   overflow-x: hidden;
+}
+.btnLogOut{
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+}
+.linkCarTesla{
+  width: 50%;
+  height: 50%;
+  margin: -10vh auto;
+}
+.linkCarTesla img{
+  width: 80%;
+  margin: -2vh -7.5vw auto auto;
+  height: 300%;
+  display: grid;
+  place-items: center;
+}
+#linkTesla img{
+  width: 55%;
+  height: 400%;
+  margin: -5vh auto auto -7.5vw;
+}
+.linkCarTesla:hover{
+  filter: brightness(0.75);
+}
+#linkTesla:hover{
+  filter: brightness(2);
+}
+.divOptions{
+  width: 50%;
+  height: 70%;
+  display: grid;
+  place-items: center;
+  float: left;
+  padding-top: 3vh;
 }
