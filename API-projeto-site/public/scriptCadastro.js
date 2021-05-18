@@ -90,20 +90,27 @@ function cadastrar() {
     fetch("/usuarios/cadastrar", {
         method: "POST",
         body: formulario
-    }).then(function (response) {
-        
-        if (response.ok) {
-            sessionStorage.username_usuario_meuapp = nickId.value;
-            sessionStorage.nome_usuario_meuapp = nomeId.value;
-            sessionStorage.carro_usuario_meuapp = inputlist.value;
-            sessionStorage.email_usuario_meuapp = emailId.value;
-            logins = "1";
-            sessionStorage.setItem("logins", logins);
-            window.location.href = 'menuOptions.html';
-
-        } else {
-            alert('Conta já existente com esse email');
-			window.location.href = "login.html";
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+            if (typeof json != 'string') {
+                sessionStorage.username_usuario_meuapp = nickId.value;
+                sessionStorage.nome_usuario_meuapp = nomeId.value;
+                sessionStorage.carro_usuario_meuapp = inputlist.value;
+                sessionStorage.email_usuario_meuapp = emailId.value;
+                sessionStorage.senha_usuario_meuapp = passwordId.value;
+                sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
+                sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+                logins = "1";
+                sessionStorage.setItem("logins", logins);
+                window.location.href = 'menuOptions.html';
+            } 
+            else alert(json);
+        });
+        } 
+        else {
+            alert('Erro de cadastro');
+            console.log("ERRO DE CADASTRO");
         }
     });
     return false;

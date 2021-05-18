@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesla - Perfil</title>
+    <title>Tesla - Carros mais Gostados</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <script src="scriptPerfil.js" defer></script>
+    <script src="scriptverificarUser.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -15,12 +15,12 @@
          <div class="menu-btn__burger"></div>
      </div>
      <a href="index.html"><img id="logo" src="https://www.freepnglogos.com/uploads/tesla-logo-png-20.png"></a>
-     <a id="loginLink" href="login.html" target="_self">Login</a>
+     <a id="loginLink" href="login.html" target="_self" style="display: none;">Login</a>
      <div id="myLeftSidenav" class="leftsidenav">
          <div>
          <a href="sobre.html" id="aboutId" class="listnav2">Sobre</a>
          <a href="contato.html" id="contatoId" class="listnav2">Contato</a>
-         <a href="login.html" id="loginId" class="listnav2" >Login</a>
+         <a href="login.html" id="loginId" class="listnav2" style="display: none;">Login</a>
          <a href="menuOptions.html" id="menuOptions" class="listnav2">Menu de Opções</a>
          </div>
          <div id="historyTab">
@@ -81,31 +81,12 @@
      </div>
  </div>
  <div class="bodyDiv">
-  <form id="form_update" onsubmit="salvarEdição(event);" class="box-formCadastro overform">
-    <h1 class="idHeadCadastro">Perfil do usuário</h1>
-    <input type="text" placeholder="Nome" name="nome" class="classCadastro" autocomplete="off" id="nomeId" onkeypress="enterFuncMid(event, 'nomeId', 'nickId')">
-    <input type="text" placeholder="UserName" name="username" class="classCadastro" autocomplete="off" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
-    <input type="text" placeholder="Email" readonly style="display: none;" name="email" class="classCadastro" autocomplete="off" id="emailId" onkeyup="validateEmail(emailId)" onkeypress="enterFuncMid(event, 'emailId', 'passwordId')">
-    <input type="text" placeholder="Senha" name="senha" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" onkeyup="validatePassword(passwordId)" class="classCadastro" id="passwordId" minlength="8" maxlength="16" onkeypress="enterFuncMid(event, 'passwordId', 'passwordIdConfirm')">
-    <input id="inputlist" list="datalistModels" name="carroFav" autocomplete="off" type="text" onkeypress="enterFuncMid(event, 'datalistModels', 'idadeId')" placeholder="Modelo Favorito da Tesla..." class="classCadastro">
-  <datalist id="datalistModels">
-    <option value="Model S">
-    <option value="Model 3">
-    <option value="Model X">
-    <option value="Model Y">
-    <option value="Roadster">
-    <option value="Semi">
-    <option value="CyberTruck">
-  </datalist>
-  <input type="number" placeholder="Ano que nasceu" name="anoNasc" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')">
-  <input type="number" placeholder="Ano que começou a ser fã" name="anoInicio" class="classCadastro" autocomplete="off" id="fanId">
-  <div class="btnsEdit">
-    <button type="button" id="btnEdit" onclick="editarDados();">Editar</button>
-    <button type="button" id="btnConfirm" onclick="voltarMenu(event);">Confirmar</button>
-    <button type="button" id="btnCancel" onclick="cancelarEdição();">Cancelar</button>
-    <button type="submit" id="btnSave">Salvar</button>
-  </div>
-</form>
+  <form id="form_verify" method="post" onsubmit="verificarSenhaUser(event);" class="box-formCadastro">
+    <h1 id="idHeadCadastro">Insira sua senha para continuar</h1>
+    <input type="password" placeholder="Senha" name="senha" autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
+    <input type="text" placeholder="Email" id='emailId' name="email" autocomplete="off" readonly style="display: none;">
+    <input type="submit" value="Entrar" id="btnSubmit">
+  </form>
  </div>
 </body>
 </html>

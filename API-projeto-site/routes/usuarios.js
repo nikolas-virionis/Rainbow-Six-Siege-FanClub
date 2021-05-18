@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
-let carrofk;
 let sessoes = [];
 
 /* Recuperar usuário por login e senha */
@@ -60,6 +59,7 @@ router.post('/autenticarSenha', function(req, res, next) {
 /* Cadastrar usuário */
 router.post('/cadastrar', function(req, res, next) {
 	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
+	let carrofk = null;
 	let instrucaoSql = `select * from usuario where email='${email}'`;
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
@@ -91,9 +91,10 @@ router.post('/cadastrar', function(req, res, next) {
 			console.error(erro);
 			res.status(500).send(erro.message);
   		});
-			} 
+		  res.json(resultado)
+	} 
 			else if (resultado.length != 0){
-				alert('Conta já existente com esse email');
+				res.json('Conta já existente com esse email');
 			}
 	}).catch(erro => {
 		console.error(erro);
@@ -101,6 +102,37 @@ router.post('/cadastrar', function(req, res, next) {
   	});
 });
 
+/* Atualizar usuário */
+router.post('/atualizar', function(req, res, next) {
+	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var nome = req.body.nome; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var username = req.body.username; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var carroFav = req.body.carroFav; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var anoNasc = req.body.anoNasc; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var anoInicio = req.body.anoInicio; // depois de .body, use o nome (name) do campo em seu formulário de login
+	let carrofk = null;
+	if (req.body.carroFav == "Model S") carrofk = 1;
+	else if (req.body.carroFav == "Model 3") carrofk = 2;
+	else if (req.body.carroFav == "Model X") carrofk = 3;
+	else if (req.body.carroFav == "Model Y") carrofk = 4;
+	else if (req.body.carroFav == "Roadster") carrofk = 5;
+	else if (req.body.carroFav == "Semi") carrofk = 6;
+	else if (req.body.carroFav == "Cybertruck") carrofk = 7;
+	else console.error("ERRO NA DEFINIÇÃO DA FK DO CARRO NO PERFIL DO USUÁRIO");
+	let instrucaoSql = `update usuario set nome = '${nome}', username = '${username}', 
+	senha = '${senha}', carroFav = '${carrofk}', anoNasc = '${anoNasc}', anoInicio = '${anoInicio}' 
+	where idUser = (select idUser from usuario where email='${email}') ;`;
+	console.log(instrucaoSql);
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
 
 /* Verificação de usuário */
 router.get('/sessao/:login', function(req, res, next) {
