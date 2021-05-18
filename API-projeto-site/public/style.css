@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,300&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -665,4 +666,73 @@ body{
   place-items: center;
   float: left;
   padding-top: 3vh;
+}
+#cyberTruckBack {
+  background-image: url('https://www.teahub.io/photos/full/25-257580_tesla-cybertruck.jpg');
+  background-size: cover;
+}
+#modelSBack {
+  background-image: url('https://wallpaperaccess.com/full/486595.jpg');
+  background-size: cover;
+}
+#model3Back {
+  background-image: url('https://www.hdcarwallpapers.com/walls/2018_tesla_model_3_4k_3-HD.jpg');
+  background-size: cover;
+}
+#modelXBack {
+  background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/06/tesla-model-x-front_1559764594.jpg');
+  background-size: cover;
+}
+#modelYBack {
+  background-image: url('https://wallpapercave.com/wp/wp4050218.jpg');
+  background-size: cover;
+}
+#semiBack {
+  background-image: url('https://wallpapercave.com/wp/wp4859419.jpg');
+  background-size: cover;
+}
+#roadsterBack {
+  background-image: url('https://i.pinimg.com/originals/36/24/c3/3624c36c725092a243f0e33e990b7030.jpg');
+  background-size: cover;
+}
+.carHead, .carDesc {
+  font-variant: small-caps;
+  width: 100%;
+  height: 13%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #222;
+  font-size: 4vw;
+  font-weight: 900;
+  font-family: Bitter;
+}
+.carDesc {
+  font-size: 2.5vw;
+}
+.carDiv{
+  font-variant: small-caps;
+  width: 90%;
+  height: 12%;
+  font-size: 2vw;
+  color: black;
+  font-weight: 300;
+  font-family: Bitter;
+}
+.left {
+  text-align: left;
+  padding-left: 5vw;
+  font-family: Bitter;
+}
+.right {
+  text-align: right;
+  padding-right: 5vw;
+  font-family: Bitter;
+}
+.white {
+  color: white;
+}
+.gray {
+  background-color: rgba(109, 109, 109, 0.3);
+  color: white;
 }

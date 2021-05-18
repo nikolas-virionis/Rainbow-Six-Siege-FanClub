@@ -1,35 +1,21 @@
-var express = require('express');
-var router = express.Router();
-var sequelize = require('../models').sequelize;
-var Usuario = require('../models').Usuario;
+import { Router } from 'express';
+var router = Router();
+import { sequelize } from '../models';
+import { Carros } from '../models';
 
 let sessoes = [];
 
-/* Recuperar usuário por login e senha */
-router.post('/autenticar', function(req, res, next) {
+router.post('/autenticarCarro', function(req, res, next) {
 	console.log('Recuperando usuário por login e senha');
-
-	var login = req.body.username; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
-	
-	let instrucaoSql = `select * from usuario where username='${login}' and senha='${senha}'`;
+	var id = Number(req.body.idCarro); // depois de .body, use o nome (name) do campo em seu formulário de login	
+	let instrucaoSql = `select * from carros where idCarro = ${id}`;
 	console.log(instrucaoSql);
-
 	sequelize.query(instrucaoSql, {
-		model: Usuario
+		model: Carros
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-
-		if (resultado.length == 1) {
-			sessoes.push(resultado[0].dataValues.login);
-			console.log('sessoes: ',sessoes);
-			res.json(resultado[0]);
-		} else if (resultado.length == 0) {
-			res.status(403).send('Login e/ou senha inválido(s)');
-		} else {
-			res.status(403).send('Mais de um usuário com o mesmo login e senha!');
-		}
-
+		console.log(`Encontrado: ${resultado[0]}`);
+		res.json(resultado[0]);
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
@@ -110,4 +96,4 @@ router.get('/', function(req, res, next) {
   	});
 });
 
-module.exports = router;
+export default router;

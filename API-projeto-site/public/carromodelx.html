@@ -7,6 +7,7 @@
     <title>Tesla - Model X</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="scriptCarros.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -79,59 +80,43 @@
              </div>
      </div>
  </div>
-<div class="bodyDivMotive">
-  <div class="motivoHead">
-    <h1>Motivação do Site</h1>
-    <h3>Por que gosto da Tesla e ela me representa</h3>
-  </div>
-  <div class="motivoBody">
-    <div class="motivoBodyTxt">
-      Primeiramente, acho que o que faz com que eu goste muito da Tesla é a quantidade e a qualidade,
-      nunca antes vistas em carros, de features tecnológicas, como um piloto automatico com precisão 
-      nunca alcançada até os dias de hoje, sentry mode e cameras aumentando a segurança de dirigir um 
-      Tesla, automação de tarefas que até por costume nunca foram automáticas, por exemplo ajeitar o ar 
-      condicionado, aquecer o banco, ou descongelar o carro, para países muito gelados, entre  outras 
-      muitas features dos carros da empresa.
-    </div>
-    <div class="motivoBodyImg"><img src="https://cdn.vox-cdn.com/thumbor/v_QihJKqArO5ojMp5rPWYJgXnVk=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/18473119/tesladogmode.png">
-    </div>
-  </div>
-  <div class="motivoBody">
-    <div class="motivoBodyImg"><img src="https://cdn.carbuzz.com/gallery-images/840x560/755000/800/755825.jpg" alt="">
-    </div>
-    <div class="motivoBodyTxt">
-      Além disso a Tesla, após quase metade de uma década de sua criação, conseguiu lançar um carro 
-      (Tesla Roadster) que possuia uma aceleração comparada a modelos esportivos de grandes marcas 
-      como BMW e Mercedes. Mais de 10 anos depois a Tesla entrou em um patamar completamente diferente 
-      fazendo o carro com maior aceleração do mundo sendo o protótipo do novo Tesla Roadster ou o 
-      novo Tesla Model S PLaid+ que batem a fronteira dos 2 segundos de 0 a 100khpm, mostrando que 
-      de fato a Tesla mudou a indústria automotiva. fazendo quase todas as maiores empresas do 
-      cenário se virarem para o elétrico.
-    </div>
-  </div>
-  <div class="motivoBody">
-    <div class="motivoBodyTxt">
-      E por fim, apesar da contraditoriedade desse tópico, eu tenho um inclinação a gostar da Tesla 
-      também por admirar seu CEO, Elon Musk, por um viés primariamente tecnológico, por ser o dono 
-      e/ou fundador de empresas como, além da Tesla, Starlink, Solarcity, de posse da Tesla, 
-      NeuralLink, OpenAI, SpaceX, entre outros, mas também por algumas posturas de fazer o 
-      Impossível, mudar mercados, competir com enormes da indústria que ele entrar.
-    </div>
-    <div class="motivoBodyImg"><img src="https://pngclick.com/Guest/images/Png/1039.png" alt="">
-    </div>
-  </div>
-  <div class="motivoBody">
-    <div class="motivoBodyImg"><img src="https://twelverulesforlife.com/index_htm_files/75@2x.png" alt="">
-    </div>
-    <div class="motivoBodyTxt">
-      Um exemplo disso foi uma fala do psicólogo canadense Jordan Peterson, em uma de suas palestras, 
-      ao contar uma história sobre Elon Musk: ‘O que (Elon)Musk fez?!? Ele 'inventou' o carro 
-      elétrico(Tesla) e isso é impossível, aí ele fez isso funcionar, o que é impossível, e aí 
-      ele construiu toda uma infraestrutura para carrega-los, e ela funciona, o que é impossível, 
-      e são bons carros, e aí ele fez seus carros mais rápidos do que qualquer outro já existente, 
-      e baratos, o que é impossível....’
-    </div>
-  </div>
+ <div class="bodyDiv" id="modelXBack">
+  <form id="form_carro" style="display: none;" method="post" onsubmit="checkCarro();" class="box-formCadastro">
+    <input type="text" placeholder="Senha" name="idCarro" readonly  autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
+    <input type="submit" value="Entrar" id="btnSubmit">
+  </form>
+  <h1 class="carHead white">Model X</h1>
+  <h4 class="carDesc white">O carro de familia mais rápido que muito carro de corrida</h4>
+  <div class="carDiv left white" id="vMaxDiv">
+    <!-- vMax -->
+    <h3>Velocidade Máxima</h3>
+    <h2><span id="vMaxId"></span>km/h</h2>
+      </div>
+      <div class="carDiv right white" id="aceleração0_100Div">
+    <!--  aceleração 0-100-->
+    <h3>0 - 100km/h</h3>
+    <h2><span id="aceleração0_100Id"></span>seg</h2>
+      </div>
+      <div class="carDiv left white" id="rangeDiv">
+    <!--  range-->
+    <h3>Alcance de uma carga</h3>
+    <h2><span id="chargeRangeId"></span>km</h2>
+      </div>
+      <div class="carDiv right white" id="powerDiv">
+    <!--  potencia-->
+    <h3>Potência</h3>
+    <h2><span id="powerId"></span>hp</h2>
+      </div>
+      <div class="carDiv left white" id="pesoDiv">
+    <!--  peso-->
+    <h3>Peso</h3>
+    <h2><span id="pesoId"></span>kg</h2>
+      </div>
+      <div class="carDiv right white" id="aceleração400mDiv">
+    <!--  aceleração 400m-->
+    <h3>1/4 milha</h3>
+    <h2><span id="aceleração400mId"></span>seg</h2>
+      </div>
 </div>
 </body>
 </html>
