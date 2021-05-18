@@ -736,3 +736,6 @@ body{
   background-color: rgba(109, 109, 109, 0.3);
   color: white;
 }
+.carDiv :is(h4, h2){
+  display: inline;
+}
