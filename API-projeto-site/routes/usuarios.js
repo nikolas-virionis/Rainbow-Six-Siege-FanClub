@@ -19,7 +19,6 @@ router.post('/autenticar', function(req, res, next) {
 		model: Usuario
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-
 		if (resultado.length == 1) {
 			sessoes.push(resultado[0].dataValues.login);
 			console.log('sessoes: ',sessoes);
@@ -29,7 +28,6 @@ router.post('/autenticar', function(req, res, next) {
 		} else {
 			res.status(403).send('Mais de um usuário com o mesmo login e senha!');
 		}
-
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
@@ -39,16 +37,18 @@ router.post('/autenticar', function(req, res, next) {
 router.post('/autenticarSenha', function(req, res, next) {
 	console.log('Recuperando senha');
 	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
-	let instrucaoSql = `select * from usuario where email = '${sessionStorage.email_usuario_meuapp}' and senha='${senha}';`;
-	console.log(instrucaoSql);
-	sequelize.query(instrucaoSql, {
+	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login	
+	let instrucaoSQL = `select * from usuario where email = '${email}' and senha='${senha}';`;
+	console.log(instrucaoSQL);
+	sequelize.query(instrucaoSQL, {
 		model: Usuario
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-		if (resultado.length == 1) window.location.href = 'perfil.html';
+		if (resultado.length == 1) {
+			res.json(resultado[0]);
+		}
 		else if (resultado.length == 0) {
-			alert('Senha inválida');
-			passwordId.value = "";
+			res.json('Senha incorreta');
 		} 
 		else console.log("%c ERRO DE LÓGICA PARA VERIFICAÇÃO DE EMAILS", 'background: #eee; color: red;');
 	}).catch(erro => {

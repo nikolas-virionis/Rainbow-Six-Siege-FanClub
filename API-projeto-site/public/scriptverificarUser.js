@@ -12,8 +12,13 @@ const verificarSenhaUser = event => {
             body: formularioVerify
         }).then(resposta => {
             if (resposta.ok) {
-                // resposta.json().then(json => {
-                // });
+                resposta.json().then(json => {
+                    if (json.senha && json.senha == passwordId.value) window.location.href = "perfil.html";
+                    else {
+                        alert(json);
+                        passwordId.value = "";
+                    }
+                });
             } else {
                 console.log('Erro de verificação de senha!');
                 resposta.text().then(texto => {
@@ -23,3 +28,4 @@ const verificarSenhaUser = event => {
         });
     }
 }
+emailId.value = sessionStorage.email_usuario_meuapp;
