@@ -122,7 +122,7 @@ router.post('/atualizar', function(req, res, next) {
 	else console.error("ERRO NA DEFINIÇÃO DA FK DO CARRO NO PERFIL DO USUÁRIO");
 	let instrucaoSql = `update usuario set nome = '${nome}', username = '${username}', 
 	senha = '${senha}', carroFav = '${carrofk}', anoNasc = '${anoNasc}', anoInicio = '${anoInicio}' 
-	where idUser = (select idUser from usuario where email='${email}') ;`;
+	where email='${email}';`;
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Usuario
