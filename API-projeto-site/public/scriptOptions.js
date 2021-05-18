@@ -13,5 +13,6 @@ const logOut = () => {
 }
 h1Options.innerText = `Olá, ${sessionStorage.username_usuario_meuapp}`
 if (arrayCarros.includes(sessionStorage.carro_usuario_meuapp)) {
-    linkTesla.href += `${((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase()}.html`;
+    linkTesla.href += `${((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase()}`;
+    linkCarroTesla.href += `${((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase()}.html`;
 }

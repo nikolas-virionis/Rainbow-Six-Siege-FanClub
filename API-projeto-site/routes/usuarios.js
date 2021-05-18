@@ -92,9 +92,8 @@ router.post('/cadastrar', function(req, res, next) {
 			res.status(500).send(erro.message);
   		});
 			} 
-			else {
+			else if (resultado.length != 0){
 				alert('Conta já existente com esse email');
-				window.location.href = "login.html";
 			}
 	}).catch(erro => {
 		console.error(erro);

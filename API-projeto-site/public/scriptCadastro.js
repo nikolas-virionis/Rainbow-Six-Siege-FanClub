@@ -102,9 +102,8 @@ function cadastrar() {
             window.location.href = 'menuOptions.html';
 
         } else {
-            console.log('Erro de cadastro!');
-            response.text().then(function (resposta) {
-            });
+            alert('Conta já existente com esse email');
+			window.location.href = "login.html";
         }
     });
     return false;

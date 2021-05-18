@@ -645,8 +645,8 @@ body{
 }
 .linkCarTesla img{
   width: 80%;
-  margin: -2vh -7.5vw auto auto;
-  height: 300%;
+  margin: -3vh -7.5vw auto auto;
+  height: 400%;
   display: grid;
   place-items: center;
 }
@@ -656,9 +656,6 @@ body{
   margin: -5vh auto auto -7.5vw;
 }
 .linkCarTesla:hover{
-  filter: brightness(0.75);
-}
-#linkTesla:hover{
   filter: brightness(2);
 }
 .divOptions{
