@@ -27,6 +27,11 @@ function entrar() {
             resposta.json().then(json => {
                 sessionStorage.username_usuario_meuapp = json.username;
                 sessionStorage.nome_usuario_meuapp = json.nome;
+                sessionStorage.carro_usuario_meuapp = json.carroFav;
+                sessionStorage.email_usuario_meuapp = json.email;
+                sessionStorage.senha_usuario_meuapp = json.senha;
+                sessionStorage.anoNasc_usuario_meuapp = json.anoNasc;
+                sessionStorage.anoInicio_usuario_meuapp = json.anoInicio;
                 logins = "1";
                 sessionStorage.setItem("logins", logins);
                 window.location.href = 'menuOptions.html';
