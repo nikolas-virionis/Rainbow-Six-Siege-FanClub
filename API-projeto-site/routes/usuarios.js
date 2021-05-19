@@ -32,6 +32,30 @@ router.post('/autenticar', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+
+/* Recuperar usuário por login e senha */
+router.post('/autenticarRank', function(req, res, next) {
+	console.log('Recuperando numeros de carros');
+	var id = req.body.idCarro; // depois de .body, use o nome (name) do campo em seu formulário de login
+	let instrucaoSql = `select * from usuario where carroFav = ${id}`;
+	console.log(instrucaoSql);
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		if (resultado == null || resultado.length == null) console.log(`%c VALOR DE RESULTADO DE CARROS INVÁLIDO`, "color: red; background-color: white;")
+		else{
+			res.json({
+				resultado: resultado.length,
+				id
+			});
+		}
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
 /* Verificação da senha do usuário para edição dos dados */
 router.post('/autenticarSenha', function(req, res, next) {
 	console.log('Recuperando senha');

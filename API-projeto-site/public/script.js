@@ -12,16 +12,16 @@ valorSelecionado,
 username_usuario, 
 nome_usuario
 rbs = document.querySelectorAll('input[name="radio-btn"]');
-if (logins === '1') {
-  loginLink.style.display = "none";
-  loginId.style.display = "none";
-  menuOptions.style.display = "block"
-}
-else{
-  loginLink.style.display = "block";
-  loginId.style.display = "block";
-  menuOptions.style.display = "none"
-}
+if (logins === '1' || document.title[document.title.length - 1] == 's') {
+    loginLink.style.display = "none";
+    loginId.style.display = "none";
+    menuOptions.style.display = "block"
+  }
+  else {
+    loginLink.style.display = "block";
+    loginId.style.display = "block";
+    menuOptions.style.display = "none"
+  }
 const actionDone = () => {
     menu.style.opacity = "1";
     document.documentElement.style.cursor = 'auto';
@@ -105,7 +105,6 @@ const closeNav = () => {
   menuBtn.classList.remove('open');
 }
 const redirecionar_login = () => window.location.href = 'login.html';
-
 function verificar_autenticacao() {
     username_usuario = sessionStorage.username_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
@@ -118,13 +117,6 @@ function verificar_autenticacao() {
     }
     
 }
-
-function logoff() {
-    finalizar_sessao();
-    sessionStorage.clear();
-    redirecionar_login();
-}
-
 function validar_sessao() {
     fetch(`/usuarios/sessao/${username_usuario}`, {cache:'no-store'})
     .then(resposta => {
@@ -138,7 +130,6 @@ function validar_sessao() {
         } 
     });    
 }
-
 function finalizar_sessao() {
     fetch(`/usuarios/sair/${username_usuario}`, {cache:'no-store'}); 
 }

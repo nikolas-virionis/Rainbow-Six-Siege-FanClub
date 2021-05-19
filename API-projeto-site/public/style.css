@@ -524,11 +524,11 @@ body{
   color: #fff;
 }
 .linkSobreA{
-  width: 50%;
+  width: 75%;
   height: fit-content;
-  padding: 1vh;
-  font-size: 1.35vw;
-  color: #d20000;
+  padding: 2vh;
+  font-size: 1.6vw;
+  color: #c20000;
   font-variant: small-caps;
   text-align: center;
 }
@@ -751,4 +751,73 @@ body{
 }
 .carDiv :is(h4, h2){
   display: inline;
+}
+.rankDiv{
+  height: 70vh;
+  background-color: #333;
+}
+.rankplacesHead{
+  height: 10%;
+}
+.rankplacesHead h1{
+  padding-top: 1vh;
+  font-variant: small-caps;
+  font-weight: 300;
+  font-family: Bitter;
+}
+.rankplaces{
+  width: 100%;
+  height: 12.6%;
+  border-top: solid white 0.1px;
+  background-color: black;
+}
+.colocação {
+  text-align: left;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  margin-left: 1vh;
+  width: fit-content;
+  font-variant: small-caps;
+  font-weight: 300;
+  font-family: Bitter;
+  font-size: 3.5vw;
+  color: azure;
+  float: left;
+}
+.pontuação {
+  text-align: right;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  margin-right: 1vh;
+  width: fit-content;
+  font-variant: small-caps;
+  font-weight: 300;
+  font-family: Bitter;
+  font-size: 3.5vw;
+  color: azure;
+  float: right;
+  background-color: rgba(39, 39, 39, 0.255);
+}
+.places{
+  display: grid;
+  height: 100%;
+  place-content: center;
+  width: fit-content;
+  margin: auto;
+}
+#firstLink, #secondLink, #thirdLink, #fourthLink, #fifthLink, #sixthLink, #seventhLink{
+  text-decoration: none;
+  width: fit-content;
+  margin: auto;
+  font-variant: small-caps;
+  font-weight: 600;
+  font-family: Bitter;
+  font-size: 3vw;
+  color: red;
+}
+:is(#firstLink, #secondLink, #thirdLink, #fourthLink, #fifthLink, #sixthLink, #seventhLink):hover{
+  text-decoration: underline;
+  color: white;
 }

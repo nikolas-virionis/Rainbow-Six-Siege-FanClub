@@ -95,3 +95,5 @@ function checkCarro() {
     });
     return false;
 }
+loginLink.innerHTML = "Carros Favoritos";
+loginLink.href = "rankingCarros.html";

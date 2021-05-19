@@ -7,7 +7,7 @@
     <title>Tesla - Carros mais Gostados</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <script src="scriptverificarUser.js" defer></script>
+    <script src="scriptRanking.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -81,7 +81,50 @@
      </div>
  </div>
  <div class="bodyDiv">
-  
+  <form id="form_ranking" style="display: none;" method="post" onsubmit="submitRank();" class="box-formCadastro">
+    <input type="text" placeholder="idCarro" id='emailId' name="idCarro" autocomplete="off" readonly>
+    <input type="submit" value="Entrar" id="btnSubmit">
+  </form>
+  <div class="box-formCadastro rankDiv">
+    <div class="rankplacesHead">
+      <h1>Carros Favoritos</h1>
+    </div>
+    <div class="rankplaces firstplace"><div class="pontuação" id="ptsFirst"></div>
+  <div class="colocação">1º</div>
+<div id="firstplace" class="places"><a href="" class="linkplaces" id="firstLink"></a></div>
+
+    </div>
+    <div class="rankplaces secondplace">
+      <div class="pontuação" id="ptsSecond"></div>
+  <div class="colocação">2º</div>
+  <div id="secondplace" class="places"><a href="" class="linkplaces" id="secondhLink"></a></div>
+    </div>
+    <div class="rankplaces thirdplace">
+      <div class="pontuação" id="ptsThird"></div>
+    <div class="colocação">3º</div>
+      <div id="thirdplace" class="places"><a href="" class="linkplaces" id="thirdLink"></a></div>
+      </div>
+    <div class="rankplaces fourthplace">
+        <div class="pontuação" id="ptsFourth"></div>
+    <div class="colocação">4º</div>
+      <div id="fourthplace" class="places"><a href="" class="linkplaces" id="fourthLink"></a></div>
+    </div>
+    <div class="rankplaces fifthplace">
+      <div class="pontuação" id="ptsFifth"></div>
+    <div class="colocação">5º</div>
+      <div id="fifthplace" class="places"><a href="" class="linkplaces" id="fifthLink"></a></div>
+      </div>
+    <div class="rankplaces sixthplace">
+      <div class="pontuação" id="ptsSixth"></div>
+    <div class="colocação">6º</div>
+      <div id="sixthplace" class="places"><a href="" class="linkplaces" id="sixthLink"></a></div>
+      </div>
+    <div class="rankplaces seventhplace">
+      <div class="pontuação" id="ptsSeventh"></div>
+      <div class="colocação">7º</div>
+      <div id="seventhplace" class="places"><a href="" class="linkplaces" id="seventhLink"></a></div>
+    </div>
+  </div>
  </div>
 </body>
 </html>
