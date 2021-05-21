@@ -9,7 +9,6 @@ else if (document.title[document.title.length - 1].toLowerCase() == "i") passwor
 else if (document.title[document.title.length - 1].toLowerCase() == "k") passwordId.value = 7;
 else console.error("Erro de escolha do carro, tente novamente mais tarde")
 
-form_carro.submit();
 
 // if (passwordId.value == "1") {
 //     vMaxId.innerHTML = 320;
@@ -67,6 +66,8 @@ form_carro.submit();
 //     aceleração400mId.innerHTML = 10.80;
 // }
 
+checkCarro()
+
 function checkCarro() {
     var formularioCarro = new URLSearchParams(new FormData(form_carro));
     fetch("/carros/autenticarCarro", {
@@ -97,3 +98,4 @@ function checkCarro() {
 }
 loginLink.innerHTML = "Carros Favoritos";
 loginLink.href = "rankingCarros.html";
+loginLink.style.display = "block";

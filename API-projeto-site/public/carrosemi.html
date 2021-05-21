@@ -81,7 +81,7 @@
      </div>
  </div>
  <div class="bodyDiv" id="semiBack">
-  <form id="form_carro" style="display: none;" method="post" onsubmit="checkCarro();" class="box-formCadastro">
+  <form id="form_carro" style="display: none;" onsubmit="checkCarro(); return false" class="box-formCadastro">
     <input type="text" placeholder="Senha" name="idCarro" readonly  autocomplete="off" onkeypress="enterFunc(event)" title="A senha deve conter uma letra maiúscula, um número e deve ter entre 8 e 16 caracteres" class="classCadastro" id="passwordId" minlength="8" maxlength="16">
     <input type="submit" value="Entrar" id="btnSubmit">
   </form>

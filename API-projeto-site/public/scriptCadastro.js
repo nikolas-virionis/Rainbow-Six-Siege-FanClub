@@ -92,9 +92,7 @@ function cadastrar() {
         body: formulario
     }).then(resposta => {
         if (resposta.ok) {
-            resposta.json().then(json => {
-            if (typeof json != 'string') {
-                sessionStorage.username_usuario_meuapp = nickId.value;
+            sessionStorage.username_usuario_meuapp = nickId.value;
                 sessionStorage.nome_usuario_meuapp = nomeId.value;
                 sessionStorage.carro_usuario_meuapp = inputlist.value;
                 sessionStorage.email_usuario_meuapp = emailId.value;
@@ -104,9 +102,6 @@ function cadastrar() {
                 logins = "1";
                 sessionStorage.setItem("logins", logins);
                 window.location.href = 'menuOptions.html';
-            } 
-            else alert(json);
-        });
         } 
         else {
             alert('Erro de cadastro');

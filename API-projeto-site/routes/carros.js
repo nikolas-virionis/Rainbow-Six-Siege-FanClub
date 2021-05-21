@@ -1,8 +1,7 @@
-import { Router } from 'express';
-var router = Router();
-import { sequelize } from '../models';
-import { Carros } from '../models';
-
+var express = require('express');
+var router = express.Router();
+var sequelize = require('../models').sequelize;
+var Carros = require('../models').Carros;
 let sessoes = [];
 
 router.post('/autenticarCarro', function(req, res, next) {
@@ -96,4 +95,4 @@ router.get('/', function(req, res, next) {
   	});
 });
 
-export default router;
+module.exports = router;

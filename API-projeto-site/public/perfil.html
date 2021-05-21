@@ -81,7 +81,7 @@
      </div>
  </div>
  <div class="bodyDiv">
-  <form id="form_update" onsubmit="salvarEdição(event);" class="box-formCadastro overform">
+  <form id="form_update" class="box-formCadastro overform">
     <h1 class="idHeadCadastro">Perfil do usuário</h1>
     <input type="text" placeholder="Nome" name="nome" class="classCadastro" autocomplete="off" id="nomeId" onkeypress="enterFuncMid(event, 'nomeId', 'nickId')">
     <input type="text" placeholder="UserName" name="username" class="classCadastro" autocomplete="off" id="nickId" onkeypress="enterFuncMid(event, 'nickId', 'emailId')">
@@ -103,7 +103,7 @@
     <button type="button" id="btnEdit" onclick="editarDados();">Editar</button>
     <button type="button" id="btnConfirm" onclick="voltarMenu(event);">Confirmar</button>
     <button type="button" id="btnCancel" onclick="cancelarEdição();">Cancelar</button>
-    <button type="submit" id="btnSave">Salvar</button>
+    <button type="button" id="btnSave" onclick="salvarEdição(event)">Salvar</button>
   </div>
 </form>
  </div>

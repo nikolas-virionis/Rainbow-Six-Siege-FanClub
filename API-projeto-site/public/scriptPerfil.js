@@ -67,8 +67,14 @@ const salvarEdição = (event) => {
                             window.location.reload();
                 });
         } else {
-            alert('Erro de cadastro');
-            console.log("ERRO DE CADASTRO");
+                        sessionStorage.username_usuario_meuapp = nickId.value;
+                            sessionStorage.nome_usuario_meuapp = nomeId.value;
+                            sessionStorage.carro_usuario_meuapp = inputlist.value;
+                            sessionStorage.senha_usuario_meuapp = passwordId.value;
+                            sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
+                            sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+                            sessionStorage.removeItem('readOnlyData');
+                            window.location.reload();
         }
     });
     }
