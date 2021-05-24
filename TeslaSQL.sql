@@ -30,3 +30,10 @@ INSERT INTO carros VALUES
 (6, 'Semi', 20, null, 130, 810, 11340, 1000),
 (7, 'Cybertruck', 4.5, 10.8, 200, 480, 2950, 800);
 select * from carros;
+insert into usuario values (null, 'fulano', 'fulano1', 'fulano@gmail.com', 'fulano123', 3, 2000, 2015);
+select carroFav from usuario group by carroFav order by count(carroFav) desc;
+select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carros as c 
+		inner join usuario as u 
+		on u.carroFav = c.idCarro group by carroFav
+        order by count(carroFav) desc;
+select * from usuario;
