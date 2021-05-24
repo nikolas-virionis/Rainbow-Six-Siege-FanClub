@@ -37,19 +37,14 @@ router.post('/autenticar', function(req, res, next) {
 router.post('/autenticarRank', function(req, res, next) {
 	console.log('Recuperando numeros de carros');
 	var id = req.body.idCarro; // depois de .body, use o nome (name) do campo em seu formulário de login
-	let instrucaoSql = `select * from usuario where carroFav = ${id}`;
+	let instrucaoSql = "select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carros as c inner join usuario as u on u.carroFav = c.idCarro group by carroFav order by count(carroFav) desc;";
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Usuario
 	}).then(resultado => {
-		console.log(`Encontrados: ${resultado.length}`);
+		console.log(`Encontrado: ${resultado}`);
 		if (resultado == null || resultado.length == null) console.log(`%c VALOR DE RESULTADO DE CARROS INVÁLIDO`, "color: red; background-color: white;")
-		else{
-			res.json({
-				resultado: resultado.length,
-				id
-			});
-		}
+		else res.json(resultado);
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);

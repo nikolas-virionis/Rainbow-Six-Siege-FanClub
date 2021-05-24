@@ -35,38 +35,56 @@ arrayObjs = [
         nomeCarro: 'Cybertruck',
         qtdFavs: 0
     }];
+    var posição, pontos;
 emailId.value = 1;
 submitRank();
 function submitRank() {
-    for (let varIdCarro = 1; varIdCarro <= 7; varIdCarro++){
-        emailId.value = varIdCarro;
+    debugger
+    for (let idCarro = 1; idCarro <= 7; idCarro++){
+        emailId.value = idCarro;
         var formulario = new URLSearchParams(new FormData(form_ranking));
         fetch("/usuarios/autenticarRank", {
             method: "POST",
             body: formulario
-        }).then(resposta => resposta.ok 
-            ? resposta.json().then(json => arrayObjs[varIdCarro - 1].id == Number(json.id) 
-                ? arrayObjs[varIdCarro - 1].qtdFavs = Number(json.resultado) 
-                : '') 
-            : console.error(`Erro de autenticação dos carro ${varIdCarro}`));
+        }).then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    if (idCarro == 1) {
+                        posição = document.getElementById('firstLink')
+                        pontos = document.getElementById('ptsFirst')
+                    }
+                    else if (idCarro == 2) {
+                        posição = document.getElementById('secondLink')
+                        pontos = document.getElementById('ptsSecond')
+                    }
+                    else if (idCarro == 3) {
+                        posição = document.getElementById('thirdLink')
+                        pontos = document.getElementById('ptsThird')
+                    }
+                    else if (idCarro == 4) {
+                        posição = document.getElementById('fourthLink')
+                        pontos = document.getElementById('ptsFourth')
+                    }
+                    else if (idCarro == 5) {
+                        posição = document.getElementById('fifthLink')
+                        pontos = document.getElementById('ptsFifth')
+                    }
+                    else if (idCarro == 6) {
+                        posição = document.getElementById('sixthLink')
+                        pontos = document.getElementById('ptsSixth')
+                    }
+                    else if (idCarro == 7) {
+                        posição = document.getElementById('seventhLink')
+                        pontos = document.getElementById('ptsSeventh')
+                    }
+                    console.log(json[idCarro - 1])
+                    posição.innerHTML = json[idCarro - 1].nomeCarro;
+                    pontos.innerHTML = json[idCarro - 1].qtdFks;
+                    posição.href = `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
+                })
+            }
+            else console.error(`Erro de autenticação dos carro ${idCarro}`);
+        })
     }
-    console.log(arrayObjs)
-    assignValues();
 return false;
-}
-function assignValues() {
-    firstLink.innerText = arrayObjs[0].nomeCarro;
-    secondLink.innerText = arrayObjs[1].nomeCarro;
-    thirdLink.innerText = arrayObjs[2].nomeCarro;
-    fourthLink.innerText = arrayObjs[3].nomeCarro;
-    fifthLink.innerText = arrayObjs[4].nomeCarro;
-    sixthLink.innerText = arrayObjs[5].nomeCarro;
-    seventhLink.innerText = arrayObjs[6].nomeCarro;
-    ptsFirst.innerHTML = arrayObjs[0].qtdFavs;
-    ptsSecond.innerHTML = arrayObjs[1].qtdFavs;
-    ptsThird.innerHTML = arrayObjs[2].qtdFavs;
-    ptsFourth.innerHTML = arrayObjs[3].qtdFavs;
-    ptsFifth.innerHTML = arrayObjs[4].qtdFavs;
-    ptsSixth.innerHTML = arrayObjs[5].qtdFavs;
-    ptsSeventh.innerHTML = arrayObjs[6].qtdFavs;
 }
