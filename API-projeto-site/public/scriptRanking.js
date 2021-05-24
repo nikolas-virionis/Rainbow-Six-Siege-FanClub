@@ -80,7 +80,7 @@ function submitRank() {
                     console.log(json[idCarro - 1])
                     posição.innerHTML = json[idCarro - 1].nomeCarro;
                     pontos.innerHTML = json[idCarro - 1].qtdFks;
-                    posição.href = `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
+                    posição.href += `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
                 })
             }
             else console.error(`Erro de autenticação dos carro ${idCarro}`);
