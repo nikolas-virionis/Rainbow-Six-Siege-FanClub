@@ -1,12 +1,4 @@
-let emailValido, 
-senhaValida, 
-nome, 
-username, 
-email, 
-senha,
-idade,
-favcarro,
-anoFan;
+let emailValido, senhaValida;
 nomeId.focus();
 const validateEmail = email => {
     emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;
@@ -63,27 +55,6 @@ function enterFuncMid(event, blur, focus) {
 const finalizarCadastro = () => {
     if (idadeId.value == "" || fanId.value == "" || inputlist.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
     else cadastrar();
-    //     nome = nomeId.value;
-    //     username = nickId.value;
-    //     email = emailId.value;
-    //     senha = passwordId.value;
-    //     idade = idadeId.value;
-    //     favCarro = inputlist.value;
-    //     anoFan = fanId.value;
-    // loginInfo.push({
-    //     nome,
-    //     username,
-    //     email,
-    //     senha, 
-    //     idade,
-    //     favCarro,
-    //     anoFan 
-    // });
-    // loginInfoJSONsend = JSON.stringify(loginInfo);
-    // localStorage.setItem('loginInfo', loginInfoJSONsend);
-    // logins = "1"
-    // sessionStorage.setItem("logins", logins);
-    // window.location.href = "menuOptions.html";
 }
 function cadastrar() {
     var formulario = new URLSearchParams(new FormData(form_cadastro));

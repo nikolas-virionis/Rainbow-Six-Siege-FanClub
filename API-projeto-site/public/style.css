@@ -757,12 +757,14 @@ body{
 }
 .rankplacesHead{
   height: 10%;
+  background: rgb(186, 186, 186);
 }
 .rankplacesHead h1{
   padding-top: 1vh;
   font-variant: small-caps;
-  font-weight: 300;
+  font-weight: 500;
   font-family: Bitter;
+  color: rgb(0, 0, 0);
 }
 .rankplaces{
   width: 100%;

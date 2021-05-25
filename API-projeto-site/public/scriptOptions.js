@@ -1,4 +1,4 @@
-let confirmLogOut, arrayCarros = ['CyberTruck', 'Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi'];
+let confirmLogOut, arrayCarros = ['Cybertruck', 'Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi'];
 menuOptions.style.display = "none";
 historyTab.style.marginTop = "12.5vh";
 const btnOptions = link => {

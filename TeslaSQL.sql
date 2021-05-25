@@ -38,9 +38,8 @@ select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carr
 		on u.carroFav = c.idCarro group by carroFav
         order by count(carroFav) desc;
 select * from usuario;
-truncate table usuario;
 insert into usuario values 
-(null, 'Nikolas', 'Nikolas', 'nikolas.virionis@gmail.com', 'Z4x6d000', 1, 2003, 2018),
+(null, 'Nikolas', 'nick', 'nikolas.virionis@gmail.com', 'Z4x6d000', 1, 2003, 2018),
 (null, 'Jorge', 'Jorge', 'nikolas.virionis@gmail.com', 'Z4x6d000', 6, 2003, 2018),
 (null, 'Jonas', 'Jonas', 'nikolas.virionis@gmail.com', 'Z4x6d000', 7, 2003, 2018),
 (null, 'Fernando', 'Fernando', 'nikolas.virionis@gmail.com', 'Z4x6d000', 4, 2003, 2018),
@@ -99,4 +98,4 @@ insert into usuario values
 (null, 'Nikolas', 'Robson1', 'nikolas.virionis@gmail.com', 'Z4x6d000', 7, 2003, 2018),
 (null, 'Nikolas', 'nick11', 'nikolas.virionis@gmail.com', 'Z4x6d000', 6, 2003, 2018),
 (null, 'Nikolas', 'nick12', 'nikolas.virionis@gmail.com', 'Z4x6d000', 7, 2003, 2018),
-(null, 'Elon Musk', 'Elon Musk', 'elonmusk@tesla.com', 'Z4x6d000', 7, 1971, 2003);
+(null, 'Elon Musk', 'ElonMusk', 'elonmusk@tesla.com', 'Z4x6d000', 7, 1971, 2003);

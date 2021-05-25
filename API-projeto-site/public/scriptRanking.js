@@ -1,42 +1,10 @@
-var arrayCarros = ['Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi', 'CyberTruck'], 
-arrayObjs = [
-    {
-        id: 1,
-        nomeCarro: "Model S",
-        qtdFavs: 0
-    },
-    {
-        id: 2,
-        nomeCarro: 'Model 3',
-        qtdFavs: 0
-    },
-    {
-        id: 3,
-        nomeCarro: 'Model X',
-        qtdFavs: 0
-    },
-    {
-        id: 4,
-        nomeCarro: 'Model Y',
-        qtdFavs: 0
-    },
-    {
-        id: 5,
-        nomeCarro: 'Roadster',
-        qtdFavs: 0
-    },
-    {
-        id: 6,
-        nomeCarro: 'Semi',
-        qtdFavs: 0
-    },
-    {
-        id: 7,
-        nomeCarro: 'Cybertruck',
-        qtdFavs: 0
-    }];
-    var posição, pontos;
+let posição, pontos, backg;
 emailId.value = 1;
+const setLink = (linkpos, linkpts, backRank) => {
+    posição = document.getElementById(linkpos);
+    pontos = document.getElementById(linkpts);
+    backg = document.querySelector(backRank);
+}
 submitRank();
 function submitRank() {
     debugger
@@ -49,38 +17,17 @@ function submitRank() {
         }).then(resposta => {
             if (resposta.ok) {
                 resposta.json().then(json => {
-                    if (idCarro == 1) {
-                        posição = document.getElementById('firstLink')
-                        pontos = document.getElementById('ptsFirst')
-                    }
-                    else if (idCarro == 2) {
-                        posição = document.getElementById('secondLink')
-                        pontos = document.getElementById('ptsSecond')
-                    }
-                    else if (idCarro == 3) {
-                        posição = document.getElementById('thirdLink')
-                        pontos = document.getElementById('ptsThird')
-                    }
-                    else if (idCarro == 4) {
-                        posição = document.getElementById('fourthLink')
-                        pontos = document.getElementById('ptsFourth')
-                    }
-                    else if (idCarro == 5) {
-                        posição = document.getElementById('fifthLink')
-                        pontos = document.getElementById('ptsFifth')
-                    }
-                    else if (idCarro == 6) {
-                        posição = document.getElementById('sixthLink')
-                        pontos = document.getElementById('ptsSixth')
-                    }
-                    else if (idCarro == 7) {
-                        posição = document.getElementById('seventhLink')
-                        pontos = document.getElementById('ptsSeventh')
-                    }
-                    console.log(json[idCarro - 1])
+                    if (idCarro == 1) setLink('firstLink', 'ptsFirst', '.firstplace'); 
+                    else if (idCarro == 2) setLink('secondLink', 'ptsSecond', '.secondplace'); 
+                    else if (idCarro == 3) setLink('thirdLink', 'ptsThird', '.thirdplace'); 
+                    else if (idCarro == 4) setLink('fourthLink', 'ptsFourth', '.fourthplace'); 
+                    else if (idCarro == 5) setLink('fifthLink', 'ptsFifth', '.fifthplace'); 
+                    else if (idCarro == 6) setLink('sixthLink', 'ptsSixth', '.sixthplace'); 
+                    else if (idCarro == 7) setLink('seventhLink', 'ptsSeventh', '.seventhplace'); 
                     posição.innerHTML = json[idCarro - 1].nomeCarro;
                     pontos.innerHTML = json[idCarro - 1].qtdFks;
                     posição.href += `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
+                    if (sessionStorage.carro_usuario_meuapp == posição.innerHTML) backg.style.backgroundColor = "#404040";
                 })
             }
             else console.error(`Erro de autenticação dos carro ${idCarro}`);
