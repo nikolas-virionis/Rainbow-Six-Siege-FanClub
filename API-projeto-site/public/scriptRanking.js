@@ -7,7 +7,6 @@ const setLink = (linkpos, linkpts, backRank) => {
 }
 submitRank();
 function submitRank() {
-    debugger
     for (let idCarro = 1; idCarro <= 7; idCarro++){
         emailId.value = idCarro;
         var formulario = new URLSearchParams(new FormData(form_ranking));
