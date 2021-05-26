@@ -27,10 +27,6 @@ function confirmProfile(){
         alert("Email Inválido");
         emailId.value = "";
     }
-    // else if (loginInfo.length > 0 && emailId.value == loginInfo[0].email || loginInfo.length > 1 && emailId.value == loginInfo[1].email) {
-    //     alert("Perfil já existente com esse Email");
-    //     window.location.href = "login.html";
-    // }
     else{//perfil válido, e entrada bem sucedida
         cadastro1.style.display = "none";
         cadastro2.style.display = "block";
@@ -63,17 +59,25 @@ function cadastrar() {
         body: formulario
     }).then(resposta => {
         if (resposta.ok) {
-            sessionStorage.username_usuario_meuapp = nickId.value;
-                sessionStorage.nome_usuario_meuapp = nomeId.value;
-                sessionStorage.carro_usuario_meuapp = inputlist.value;
-                sessionStorage.email_usuario_meuapp = emailId.value;
-                sessionStorage.senha_usuario_meuapp = passwordId.value;
-                sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
-                sessionStorage.anoInicio_usuario_meuapp = fanId.value;
-                logins = "1";
-                sessionStorage.setItem("logins", logins);
-                window.location.href = 'menuOptions.html';
-        } 
+            resposta.json().then(json => {
+                if (typeof json != 'string') {
+                    sessionStorage.username_usuario_meuapp = nickId.value;
+                    sessionStorage.nome_usuario_meuapp = nomeId.value;
+                    sessionStorage.carro_usuario_meuapp = inputlist.value;
+                    sessionStorage.email_usuario_meuapp = emailId.value;
+                    sessionStorage.senha_usuario_meuapp = passwordId.value;
+                    sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
+                    sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+                    logins = "1";
+                    sessionStorage.setItem("logins", logins);
+                    window.location.href = 'menuOptions.html';
+                }
+                else {
+                    alert(json);
+                    window.location.href = 'login.html'
+                }
+            });
+        }
         else {
             alert('Erro de cadastro');
             console.log("ERRO DE CADASTRO");

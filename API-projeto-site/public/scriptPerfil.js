@@ -34,15 +34,12 @@ const editarDados = () => {
     sessionStorage.setItem('readOnlyData', JSON.stringify(false));
     window.location.reload();
 }
-const voltarMenu = (event) => {
+const voltarMenu = event => {
     event.preventDefault();
     window.location.href = "menuOptions.html";
 }
-const cancelarEdição = () => {
-    sessionStorage.removeItem('readOnlyData');
-    window.location.reload();
-}
-const salvarEdição = (event) => {
+const cancelarEdição = () => deixarReadOnly();
+const salvarEdição = event => {
     event.preventDefault();
     if (idadeId.value == "" || fanId.value == "" || inputlist.value == "" || passwordId.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
     else if (!validatePassword(passwordId)) alert("Senha Inválida");
@@ -53,33 +50,23 @@ const salvarEdição = (event) => {
             fetch("/usuarios/atualizar", {
                 method: "POST",
                 body: formulario
-            }).then(resposta => {
-                if (resposta.ok) {
-                    resposta.json().then(json => {
-                        sessionStorage.username_usuario_meuapp = json.username;
-                            sessionStorage.nome_usuario_meuapp = json.nome;
-                            sessionStorage.carro_usuario_meuapp = json.carroFav;
-                            sessionStorage.email_usuario_meuapp = json.email;
-                            sessionStorage.senha_usuario_meuapp = json.senha;
-                            sessionStorage.anoNasc_usuario_meuapp = json.anoNasc;
-                            sessionStorage.anoInicio_usuario_meuapp = json.anoInicio;
-                            sessionStorage.removeItem('readOnlyData');
-                            window.location.reload();
-                });
-        } else {
-                        sessionStorage.username_usuario_meuapp = nickId.value;
-                            sessionStorage.nome_usuario_meuapp = nomeId.value;
-                            sessionStorage.carro_usuario_meuapp = inputlist.value;
-                            sessionStorage.senha_usuario_meuapp = passwordId.value;
-                            sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
-                            sessionStorage.anoInicio_usuario_meuapp = fanId.value;
-                            sessionStorage.removeItem('readOnlyData');
-                            window.location.reload();
+            }).then(resposta => salvarInfo());
         }
-    });
-    }
     }
 return false;
+}
+function deixarReadOnly(){
+    sessionStorage.removeItem('readOnlyData');
+    window.location.reload();
+}
+function salvarInfo(){
+    sessionStorage.username_usuario_meuapp = nickId.value;
+    sessionStorage.nome_usuario_meuapp = nomeId.value;
+    sessionStorage.carro_usuario_meuapp = inputlist.value;
+    sessionStorage.senha_usuario_meuapp = passwordId.value;
+    sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
+    sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+    deixarReadOnly();
 }
 const prevent = event => event.preventDefault();
 function enterFuncMid(event, blur, focus) {

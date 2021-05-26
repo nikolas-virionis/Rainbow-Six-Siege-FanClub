@@ -66,14 +66,14 @@ const radioChange = num => {
 }
 const funcSetInterval = () => {
   clearInterval(setIntervalVar);
-  setIntervalVar = setInterval(function(){
-  document.getElementById('radio' + counter).checked = true;
-  if(counter >= 4) counter = 0;
-  counter++;
-}, 8000);
+  setIntervalVar = setInterval(() => {
+    document.getElementById('radio' + counter).checked = true;
+    if(counter >= 4) counter = 0;
+    counter++;
+  }, 8000);
 }
 const closeNavAlternative = () => {
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
 try{
   if (e.target === header || 
       e.target === header.lastElementChild || 
@@ -92,9 +92,7 @@ try{
       e.target === bodydiv.lastElementChild.lastElementChild || 
       e.target === bodydiv.lastElementChild.previousElementSibling.lastElementChild) closeNav();
   }
-  catch(e){
-
-  }
+  catch(e){}
 }
 )}
 const closeNav = () => {
@@ -103,33 +101,4 @@ const closeNav = () => {
   clearInterval(setInter);
   setInter = setInterval(dimInterval, 1000);
   menuBtn.classList.remove('open');
-}
-const redirecionar_login = () => window.location.href = 'login.html';
-function verificar_autenticacao() {
-    username_usuario = sessionStorage.username_usuario_meuapp;
-    nome_usuario = sessionStorage.nome_usuario_meuapp;
-    
-    if (!username_usuario)  {
-        redirecionar_login();
-    } else {
-        h1Options.innerHTML = nome_usuario;
-        validar_sessao();
-    }
-    
-}
-function validar_sessao() {
-    fetch(`/usuarios/sessao/${username_usuario}`, {cache:'no-store'})
-    .then(resposta => {
-        if (resposta.ok) {
-            resposta.text().then(texto => {
-                console.log('Sessão :) ', texto);    
-            });
-        } else {
-            console.error('Sessão :.( ');
-            logoff();
-        } 
-    });    
-}
-function finalizar_sessao() {
-    fetch(`/usuarios/sair/${username_usuario}`, {cache:'no-store'}); 
 }
