@@ -2,7 +2,7 @@ const enterFunc = event => event.key === "Enter" ? verificarSenhaUser(event) : '
 const verificarSenhaUser = event => {
     event.preventDefault();
     if (!passwordId.value) {
-        alert("Campo, Obrigatório, de Senha Vazio");
+        alert("Campo, Obrigatório de Senha Vazio");
         passwordId.value = "";
     }
     else {
@@ -10,22 +10,11 @@ const verificarSenhaUser = event => {
         fetch("/usuarios/autenticarSenha", {
             method: "POST",
             body: formularioVerify
-        }).then(resposta => {
-            if (resposta.ok) {
-                resposta.json().then(json => {
-                    if (json.senha && json.senha == passwordId.value) window.location.href = "perfil.html";
-                    else {
-                        alert(json);
-                        passwordId.value = "";
-                    }
-                });
-            } else {
-                console.log('Erro de verificação de senha!');
-                resposta.text().then(texto => {
-                    console.warn(texto);
-                });
-            }
-        });
+        }).then(resposta => resposta.ok ? resposta.json().then(json => json.senha && json.senha == passwordId.value ? window.location.href = "perfil.html" : senhaCheck(json)) : console.log('Erro de verificação de senha!'));
     }
+}
+function senhaCheck(json) {
+    alert(json);
+    passwordId.value = "";
 }
 emailId.value = sessionStorage.email_usuario_meuapp;

@@ -1,33 +1,37 @@
-let emailValido, senhaValida;
+let emailValido, senhaValida, senhasIguais, senhaComNum;
 nomeId.focus();
 const validateEmail = email => {
-    emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length-1 && email.value.lastIndexOf('@') !== email.value.length-1 && !(email.value.includes(' ')) && email.value.length > 15;
+    emailValido = email.value.indexOf('@') >= 0 && email.value.indexOf('@') === email.value.lastIndexOf('@') && email.value.indexOf('.') >= 0 && email.value.lastIndexOf('.') !== email.value.length - 1 && email.value.lastIndexOf('@') !== email.value.length - 1 && !(email.value.includes(' ')) && email.value.length > 15;
     if (email.value == "" || emailValido) emailId.classList = 'classCadastro';
     else emailId.classList = 'classCadastroError';
+    return emailValido;
 }
 const validatePassword = senha => {
-    senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0|| senha.value.indexOf('3') >= 0|| senha.value.indexOf('4') >= 0|| senha.value.indexOf('5') >= 0|| senha.value.indexOf('6') >= 0|| senha.value.indexOf('7') >= 0|| senha.value.indexOf('8') >= 0|| senha.value.indexOf('9') >= 0
+    senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0 || senha.value.indexOf('3') >= 0 || senha.value.indexOf('4') >= 0 || senha.value.indexOf('5') >= 0 || senha.value.indexOf('6') >= 0 || senha.value.indexOf('7') >= 0 || senha.value.indexOf('8') >= 0 || senha.value.indexOf('9') >= 0
     senhaValida = senha.value.length >= 8 && senha.value.length <= 16 && senha.value !== senha.value.toLowerCase() && senhaComNum && !(senha.value.includes(' '));
     if (senha.value == "" || senhaValida) passwordId.classList = 'classCadastro';
     else passwordId.classList = 'classCadastroError';
+    return senhaValida;
 }
 const confirmPassword = () => {
-    if (passwordId.value === passwordIdConfirm.value || passwordIdConfirm.value === "") passwordIdConfirm.classList = 'classCadastro';
+    senhasIguais = passwordId.value === passwordIdConfirm.value;
+    if (senhasIguais || passwordIdConfirm.value === "") passwordIdConfirm.classList = 'classCadastro';
     else passwordIdConfirm.classList = 'classCadastroError';
+    return senhasIguais;
 }
-function confirmProfile(){
+function confirmProfile() {
     if (emailId.value == "" || passwordId.value == "" || passwordIdConfirm.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
-    else if (!senhaValida) {
+    else if (!validatePassword(passwordId)) {
         alert("Senha Inválida");
         passwordId.value = "";
         passwordIdConfirm.value = "";
     }
-    else if (passwordId.value != passwordIdConfirm.value) alert("Senhas diferentes");
-    else if (!emailValido) {
+    else if (!confirmPassword()) alert("Senhas diferentes");
+    else if (!validateEmail(emailId)) {
         alert("Email Inválido");
         emailId.value = "";
     }
-    else{//perfil válido, e entrada bem sucedida
+    else {//perfil válido, e entrada bem sucedida
         cadastro1.style.display = "none";
         cadastro2.style.display = "block";
         inputlist.focus();
@@ -36,22 +40,17 @@ function confirmProfile(){
 const enterFunc = (event, num) => {
     if (event.key === "Enter") {
         event.preventDefault();
-        num === 1 ? confirmProfile() : '';
-        num === 2 ? finalizarCadastro() : '';
+        num === 1 ? confirmProfile() : finalizarCadastro();
     }
-    
 }
 function enterFuncMid(event, blur, focus) {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById(blur).blur();
         document.getElementById(focus).focus();
     }
 }
-const finalizarCadastro = () => {
-    if (idadeId.value == "" || fanId.value == "" || inputlist.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
-    else cadastrar();
-}
+const finalizarCadastro = () => idadeId.value == "" || fanId.value == "" || inputlist.value == "" ? alert("Existem campos obrigatórios vazios, preencha-los para continuar") : cadastrar();
 function cadastrar() {
     var formulario = new URLSearchParams(new FormData(form_cadastro));
     fetch("/usuarios/cadastrar", {

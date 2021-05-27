@@ -1,4 +1,4 @@
-let invalidPassword = 0, confirmEmailLogin;
+let confirmEmailLogin;
 nickId.focus();
 historyTab.style.marginTop = "12.5vh";
 loginLink.style.display = "none";
@@ -11,7 +11,7 @@ const enterFunc = event => {
     }
 }
 const enterFuncMid = event => {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
         event.preventDefault();
         nickId.blur();
         passwordId.focus();
@@ -42,14 +42,8 @@ function entrar() {
                 sessionStorage.setItem("logins", logins);
                 window.location.href = 'menuOptions.html';
             });
-        } else {
-            console.log('Erro de login!');
-            alert('Username ou senha incorretos');
-            window.location.reload();
-            resposta.text().then(texto => {
-                console.warn(texto);
-            });
         }
+        else alert('Username ou senha incorretos');
     });
     return false;
 }

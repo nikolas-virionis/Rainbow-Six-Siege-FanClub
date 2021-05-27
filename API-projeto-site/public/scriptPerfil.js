@@ -12,19 +12,19 @@ if (readOnlyData) {
     passwordId.value = sessionStorage.senha_usuario_meuapp ?? '*não declarado*';
     inputlist.value = sessionStorage.carro_usuario_meuapp ?? '*não declarado*';
     idadeId.value = sessionStorage.anoNasc_usuario_meuapp ?? '*não declarado*';
-    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '*não declarado*';    
+    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '*não declarado*';
     btnEdit.style.display = "flex";
     btnConfirm.style.display = "flex";
     btnCancel.style.display = "none";
     btnSave.style.display = "none";
-} 
+}
 else {
     nomeId.value = sessionStorage.nome_usuario_meuapp ?? '';
     nickId.value = sessionStorage.username_usuario_meuapp ?? '';
     passwordId.value = sessionStorage.senha_usuario_meuapp ?? '';
     inputlist.value = sessionStorage.carro_usuario_meuapp ?? '';
     idadeId.value = sessionStorage.anoNasc_usuario_meuapp ?? '';
-    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '';    
+    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '';
     btnEdit.style.display = "none";
     btnConfirm.style.display = "none";
     btnCancel.style.display = "flex";
@@ -43,7 +43,7 @@ const salvarEdição = event => {
     event.preventDefault();
     if (idadeId.value == "" || fanId.value == "" || inputlist.value == "" || passwordId.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
     else if (!validatePassword(passwordId)) alert("Senha Inválida");
-    else{
+    else {
         confirmSave = confirm('Tem certeza que deseja Salvar as Alterações?');
         if (confirmSave) {
             var formulario = new URLSearchParams(new FormData(form_update));
@@ -53,13 +53,13 @@ const salvarEdição = event => {
             }).then(resposta => salvarInfo());
         }
     }
-return false;
+    return false;
 }
-function deixarReadOnly(){
+function deixarReadOnly() {
     sessionStorage.removeItem('readOnlyData');
     window.location.reload();
 }
-function salvarInfo(){
+function salvarInfo() {
     sessionStorage.username_usuario_meuapp = nickId.value;
     sessionStorage.nome_usuario_meuapp = nomeId.value;
     sessionStorage.carro_usuario_meuapp = inputlist.value;
@@ -68,16 +68,15 @@ function salvarInfo(){
     sessionStorage.anoInicio_usuario_meuapp = fanId.value;
     deixarReadOnly();
 }
-const prevent = event => event.preventDefault();
 function enterFuncMid(event, blur, focus) {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
+        event.preventDefault();
         document.getElementById(blur).blur();
         document.getElementById(focus).focus();
-        prevent(event);
     }
 }
 const validatePassword = senha => {
-    senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0|| senha.value.indexOf('3') >= 0|| senha.value.indexOf('4') >= 0|| senha.value.indexOf('5') >= 0|| senha.value.indexOf('6') >= 0|| senha.value.indexOf('7') >= 0|| senha.value.indexOf('8') >= 0|| senha.value.indexOf('9') >= 0
+    senhaComNum = senha.value.indexOf('0') >= 0 || senha.value.indexOf('1') >= 0 || senha.value.indexOf('2') >= 0 || senha.value.indexOf('3') >= 0 || senha.value.indexOf('4') >= 0 || senha.value.indexOf('5') >= 0 || senha.value.indexOf('6') >= 0 || senha.value.indexOf('7') >= 0 || senha.value.indexOf('8') >= 0 || senha.value.indexOf('9') >= 0
     senhaValida = senha.value.length >= 8 && senha.value.length <= 16 && senha.value !== senha.value.toLowerCase() && senhaComNum && !(senha.value.includes(' '));
     if (senha.value == "" || senhaValida) passwordId.classList = 'classCadastro';
     else passwordId.classList = 'classCadastroError';
