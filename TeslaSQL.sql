@@ -89,7 +89,7 @@ INSERT INTO usuario VALUES
 (NULL, 'Robson1', 'Robson1', 'robson1@gmail.com', 'ExSenha1', 1, 2003, 2018),
 (NULL, 'nick11', 'nick11', 'nick11@gmail.com', 'ExSenha1', 1, 2003, 2018),
 (NULL, 'nick12', 'nick12', 'nick12@gmail.com', 'ExSenha1', 1, 2003, 2018),
-(NULL, 'Elon Musk', 'ElonMusk', 'elonmusk@tesla.com', 'ExSenha1', 1, 1971, 2003),
+(NULL, 'Elon Musk', 'ElonMusk', 'elonmusk@tesla.com', 'ExSenha1', 7, 1971, 2003),
 (NULL, 'Nikolas9', 'nick9', 'nikolas.virionis9@gmail.com', 'ExSenha1', 2, 2003, 2018),
 (NULL, 'Jorge9', 'Jorge9', 'jorge9@gmail.com', 'ExSenha1', 1, 2003, 2018),
 (NULL, 'Jonas9', 'Jonas9', 'jonas9@gmail.com', 'ExSenha1', 1, 2003, 2018),
