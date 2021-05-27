@@ -73,8 +73,7 @@ const closeNavAlternative = () => {
         e.target === bodydiv.lastElementChild.previousElementSibling.lastElementChild) closeNav();
     }
     catch (e) { }
-  }
-  )
+  });
 }
 const closeNav = () => {
   document.getElementById("myLeftSidenav").style.width = "0";
@@ -83,16 +82,16 @@ const closeNav = () => {
   setInter = setInterval(dimInterval, 1000);
   menuBtn.classList.remove('open');
 }
-if (logins === '1' || document.title[document.title.length - 1] == 's') {
-  loginLink.style.display = "none";
-  loginId.style.display = "none";
-  menuOptions.style.display = "block"
+const loginBtnHandle = (login, menu) => {
+  loginLink.style.display = login;
+  loginId.style.display = login;
+  menuOptions.style.display = menu;
 }
-else {
-  loginLink.style.display = "block";
-  loginId.style.display = "block";
-  menuOptions.style.display = "none"
+function sideNavHandle(id) {
+  historyTab.style.marginTop = "12.5vh";
+  id ? id.style.display = "none" : '';
 }
+logins === '1' || document.title[document.title.length - 1] == 's' ? loginBtnHandle('none', 'block') : loginBtnHandle('block', 'none');
 document.addEventListener('mousemove', () => actionDone());
 document.addEventListener('keypress', () => actionDone());
 setInter = setInterval(dimInterval, 1000);

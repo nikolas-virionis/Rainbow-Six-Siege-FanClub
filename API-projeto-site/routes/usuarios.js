@@ -24,14 +24,10 @@ router.post('/atualizar', function(req, res, next) {
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Usuario
-	}).then(resultado => {
-		
-	}).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-  	});
+	}).then(resultado => res.json(resultado)
+	).catch(erro => res.status(500).send(erro.message)
+  	);
 });
-
 /* Recuperar usuário por login e senha */
 router.post('/autenticar', function(req, res, next) {
 	console.log('Recuperando usuário por login e senha');
@@ -41,32 +37,18 @@ router.post('/autenticar', function(req, res, next) {
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Usuario
-	}).then(resultado => {
-		console.log(`Encontrados: ${resultado.length}`);
-		if (resultado.length != 0) res.json(resultado[0]);
-		else res.status(403).send('Login e/ou senha inválido(s)');
-	}).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-  	});
+	}).then(resultado => resultado.length != 0 ? res.json(resultado[0]) : res.status(403).send('Login e/ou senha inválido(s)')
+	).catch(erro => res.status(500).send(erro.message));
 });
-
 /* Recuperar usuário por login e senha */
 router.post('/autenticarRank', function(req, res, next) {
 	console.log('Recuperando numeros de carros');
-	var id = req.body.idCarro; // depois de .body, use o nome (name) do campo em seu formulário de login
 	let instrucaoSql = "select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carros as c inner join usuario as u on u.carroFav = c.idCarro group by carroFav order by count(carroFav) desc;";
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Usuario
-	}).then(resultado => {
-		console.log(`Encontrado: ${resultado}`);
-		if (resultado == null || resultado.length == null) console.log(`%c VALOR DE RESULTADO DE CARROS INVÁLIDO`, "color: red; background-color: white;")
-		else res.json(resultado);
-	}).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-  	});
+	}).then(resultado => resultado == null || resultado.length == null ? console.log(`%c VALOR DE RESULTADO DE CARROS INVÁLIDO`, "color: red; background-color: white;") : res.json(resultado)
+	).catch(erro => res.status(500).send(erro.message));
 });
 /* Verificação da senha do usuário para edição dos dados */
 router.post('/autenticarSenha', function(req, res, next) {
@@ -79,12 +61,8 @@ router.post('/autenticarSenha', function(req, res, next) {
 		model: Usuario
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-		if (resultado.length == 1) {
-			res.json(resultado[0]);
-		}
-		else if (resultado.length == 0) {
-			res.json('Senha incorreta');
-		} 
+		if (resultado.length == 1) res.json(resultado[0]);
+		else if (resultado.length == 0) res.json('Senha incorreta');
 		else console.log("%c ERRO DE LÓGICA PARA VERIFICAÇÃO DE EMAILS", 'background: #eee; color: red;');
 	}).catch(erro => {
 		console.error(erro);
@@ -122,10 +100,7 @@ router.post('/cadastrar', function(req, res, next) {
 		}).then(resultado => {
 			console.log(`Registro criado: ${resultado}`)
         	res.send(resultado);
-    	}).catch(erro => {
-			console.error(erro);
-			res.status(500).send(erro.message);
-  		});
+    	}).catch(erro => res.status(500).send(erro.message));
 		  res.json(resultado[0])
 	} 
 			else res.json('Conta já existente com esse email');
@@ -139,7 +114,6 @@ router.get('/', function(req, res, next) {
 	console.log('Recuperando todos os usuários');
 	Usuario.findAndCountAll().then(resultado => {
 		console.log(`${resultado.count} registros`);
-
 		res.json(resultado.rows);
 	}).catch(erro => {
 		console.error(erro);

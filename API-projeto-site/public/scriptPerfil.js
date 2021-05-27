@@ -1,4 +1,5 @@
-let readOnlyData = JSON.parse(sessionStorage.getItem("readOnlyData")) ?? true, confirmBtn = document.querySelector('#btnConfirm'), confirmSave, senhaValida;
+let readOnlyData = JSON.parse(sessionStorage.getItem("readOnlyData")) ?? true,
+    confirmBtn = document.querySelector('#btnConfirm'), confirmSave, senhaValida;
 nomeId.readOnly = readOnlyData;
 nickId.readOnly = readOnlyData;
 passwordId.readOnly = readOnlyData;
@@ -82,3 +83,4 @@ const validatePassword = senha => {
     else passwordId.classList = 'classCadastroError';
     return senhaValida;
 }
+validatePassword(passwordId);

@@ -103,8 +103,8 @@
     <option value="Semi">
     <option value="CyberTruck">
   </datalist>
-  <input type="number" placeholder="Ano que nasceu" name="anoNasc" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')">
-  <input type="number" placeholder="Ano que começou a ser fã" name="anoInicio" class="classCadastro" autocomplete="off" id="fanId" onkeypress="enterFunc(event, 2)">
+  <input type="number" placeholder="Ano que nasceu" maxlength="4" max="2021" min="1900" name="anoNasc" class="classCadastro" autocomplete="off" id="idadeId" onkeypress="enterFuncMid(event, 'idadeId', 'fanId')" onblur="checkData(idadeId)">
+  <input type="number" placeholder="Ano que começou a ser fã" maxlength="4" max="2021" min="1900" name="anoInicio" class="classCadastro" autocomplete="off" id="fanId" onkeypress="enterFunc(event, 2)" onblur="checkData(fanId)">
   <input type="submit" value="Inscrever-se" class="btnSubmit">
 </div>
 </form>

@@ -1,7 +1,6 @@
 let confirmLogOut, arrayCarros = ['Cybertruck', 'Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi'],
-carroLinkComplete = ((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase();
-menuOptions.style.display = "none";
-historyTab.style.marginTop = "12.5vh";
+    carroLinkComplete = ((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase();
+sideNavHandle(menuOptions);
 const btnOptions = link => {
     window.location.href = link;
 }

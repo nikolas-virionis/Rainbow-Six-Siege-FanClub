@@ -1,6 +1,6 @@
 let confirmEmailLogin;
 nickId.focus();
-historyTab.style.marginTop = "12.5vh";
+sideNavHandle(false);
 loginLink.style.display = "none";
 loginId.style.display = "none";
 const confirmProfile = () => nickId.value == "" || passwordId.value == "" ? alert("Existem campos obrigatórios vazios, preencha-los para continuar") : entrar();

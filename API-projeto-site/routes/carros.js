@@ -9,13 +9,7 @@ router.post('/autenticarCarro', function(req, res, next) {
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
 		model: Carros
-	}).then(resultado => {
-		console.log(`Encontrados: ${resultado.length}`);
-		console.log(`Encontrado: ${resultado[0]}`);
-		res.json(resultado[0]);
-	}).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-  	});
+	}).then(resultado => res.json(resultado[0])
+	).catch(erro => res.status(500).send(erro.message));
 });
 module.exports = router;
