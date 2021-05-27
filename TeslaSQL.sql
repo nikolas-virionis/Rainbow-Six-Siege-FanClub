@@ -21,11 +21,6 @@ CREATE TABLE carros (
     peso DECIMAL(7,2),
     potencia INT
 );
-SELECT * FROM carros;
-SELECT u.carroFav AS fkCarro, count(u.carroFav) AS qtdFks, c.nomeCarro FROM carros AS c 
-		INNER JOIN usuario AS u ON u.carroFav = c.idCarro 
-        GROUP BY carroFav ORDER BY count(carroFav) DESC;
-SELECT * FROM usuario;
 INSERT INTO carros VALUES 
 (1, 'Model S', 1.99, 9.23, 320, 624, 2162, 1020),
 (2, 'Model 3', 3.1, 11.6, 260, 504, 1844, 480),
@@ -2241,3 +2236,8 @@ INSERT INTO usuario VALUES
 (NULL, 'ni0ck11', 'nick011', 'nick101@gmail.com', 'ExSenha1', 6, 2003, 2018),
 (NULL, 'nick102', 'nick102', 'nick120@gmail.com', 'ExSenha1', 1, 2003, 2018),
 (NULL, 'Elon M0usk', 'E0lonMusk', 'elonmusk0@tesla.com', 'ExSenha1', 7, 1971, 2003);
+SELECT * FROM carros;
+SELECT u.carroFav AS fkCarro, count(u.carroFav) AS qtdFks, c.nomeCarro FROM carros AS c 
+		INNER JOIN usuario AS u ON u.carroFav = c.idCarro 
+        GROUP BY carroFav ORDER BY count(carroFav) DESC;
+SELECT * FROM usuario;
