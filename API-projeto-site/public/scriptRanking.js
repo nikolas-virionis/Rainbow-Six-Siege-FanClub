@@ -15,6 +15,9 @@ function submitRank() {
             body: formulario
         }).then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
     }
+    colocações[0].style.color = 'gold'
+    colocações[1].style.color = 'silver'
+    colocações[2].style.color = 'darkgoldenrod'
     for (let iterator of colocações) {
         fontSizeInicial >= 2.5 ? iterator.style.fontSize = `${fontSizeInicial}vw` : iterator.style.fontSize = `2.5vw`;
         fontSizeInicial -= 0.7;
