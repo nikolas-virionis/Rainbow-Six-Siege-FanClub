@@ -773,16 +773,16 @@ body{
   background-color: black;
 }
 .colocação {
-  text-align: left;
+  text-align: center;
   height: 100%;
-  display: grid;
+  display: flex;
   place-content: center;
+  place-items: center;
   margin-left: 1vh;
   width: fit-content;
   font-variant: small-caps;
   font-weight: 300;
   font-family: Bitter;
-  font-size: 3.5vw;
   color: azure;
   float: left;
 }

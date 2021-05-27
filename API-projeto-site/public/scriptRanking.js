@@ -1,4 +1,4 @@
-let posição, pontos, backg;
+let posição, pontos, backg, colocações = document.querySelectorAll('.colocação'), fontSizeInicial = 6;
 emailId.value = 1;
 const setLink = (linkpos, linkpts, backRank) => {
     posição = document.getElementById(linkpos);
@@ -14,6 +14,10 @@ function submitRank() {
             method: "POST",
             body: formulario
         }).then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
+    }
+    for (let iterator of colocações) {
+        fontSizeInicial >= 2.5 ? iterator.style.fontSize = `${fontSizeInicial}vw` : iterator.style.fontSize = `2.5vw`;
+        fontSizeInicial -= 0.7;
     }
     return false;
 }
