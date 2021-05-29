@@ -50,7 +50,7 @@ body{
     padding: 2vh;
     margin-top: 3vh;
     margin-right: 2vw;
-    font-size: 1.4em;
+    font-size: 2.5vw;
     color: #211c1c;
     font-weight: 700;
     border: none;
@@ -60,7 +60,7 @@ body{
 }
 .header #loginLink:hover{
     border-radius: 2vh;
-    font-size: 1.5em;
+    font-size: 2.75vw;
     color: black;
     text-decoration: none;
     border: rgb(232, 232, 232) outset 0.1vh;
@@ -681,31 +681,31 @@ body{
 }
 #cyberTruckBack {
   background-image: url('https://www.teahub.io/photos/full/25-257580_tesla-cybertruck.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #modelSBack {
   background-image: url('https://wallpaperaccess.com/full/486595.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #model3Back {
   background-image: url('https://www.hdcarwallpapers.com/walls/2018_tesla_model_3_4k_3-HD.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #modelXBack {
   background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/06/tesla-model-x-front_1559764594.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #modelYBack {
   background-image: url('https://wallpapercave.com/wp/wp4050218.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #semiBack {
   background-image: url('https://wallpapercave.com/wp/wp4859419.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 #roadsterBack {
   background-image: url('https://i.pinimg.com/originals/36/24/c3/3624c36c725092a243f0e33e990b7030.jpg');
-  background-size: cover;
+  background-size: 100vw 85vh;
 }
 .carHead, .carDesc {
   font-variant: small-caps;
