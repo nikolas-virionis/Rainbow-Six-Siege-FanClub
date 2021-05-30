@@ -1,5 +1,4 @@
 let posição, pontos, backg, colocações = document.querySelectorAll('.colocação'), fontSizeInicial = 6;
-emailId.value = 1;
 const setLink = (linkpos, linkpts, backRank) => {
     posição = document.getElementById(linkpos);
     pontos = document.getElementById(linkpts);
@@ -8,12 +7,7 @@ const setLink = (linkpos, linkpts, backRank) => {
 submitRank();
 function submitRank() {
     for (let idCarro = 1; idCarro <= 7; idCarro++) {
-        emailId.value = idCarro;
-        var formulario = new URLSearchParams(new FormData(form_ranking));
-        fetch("/usuarios/autenticarRank", {
-            method: "POST",
-            body: formulario
-        }).then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
+        fetch("/usuarios/autenticarRank").then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
     }
     colocações[0].style.color = 'gold'
     colocações[1].style.color = 'silver'
@@ -34,6 +28,6 @@ function dadosCarro(json, idCarro) {
     else if (idCarro == 7) setLink('seventhLink', 'ptsSeventh', '.seventhplace');
     posição.innerHTML = json[idCarro - 1].nomeCarro;
     pontos.innerHTML = json[idCarro - 1].qtdFks;
-    posição.href += `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
+    posição.href = `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
     if (sessionStorage.carro_usuario_meuapp == posição.innerHTML) backg.style.backgroundColor = "#404040";
 }

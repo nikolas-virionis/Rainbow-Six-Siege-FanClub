@@ -41,7 +41,7 @@ router.post('/autenticar', function(req, res, next) {
 	).catch(erro => res.status(500).send(erro.message));
 });
 /* Recuperar usuário por login e senha */
-router.post('/autenticarRank', function(req, res, next) {
+router.get('/autenticarRank', function(req, res, next) {
 	console.log('Recuperando numeros de carros');
 	let instrucaoSql = "select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carros as c inner join usuario as u on u.carroFav = c.idCarro group by carroFav order by count(carroFav) desc;";
 	console.log(instrucaoSql);

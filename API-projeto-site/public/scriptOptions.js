@@ -1,9 +1,7 @@
 let confirmLogOut, arrayCarros = ['Cybertruck', 'Model S', 'Model 3', 'Model X', 'Model Y', 'Roadster', 'Semi'],
     carroLinkComplete = ((sessionStorage.carro_usuario_meuapp).split(" ").join("")).toLowerCase();
 sideNavHandle(menuOptions);
-const btnOptions = link => {
-    window.location.href = link;
-}
+const btnOptions = link => window.location.href = link;
 const logOut = () => {
     confirmLogOut = confirm('Tem certeza que deseja fazer log out?');
     if (confirmLogOut) {
@@ -13,6 +11,6 @@ const logOut = () => {
 }
 h1Options.innerText = `Olá, ${sessionStorage.nome_usuario_meuapp}`
 if (arrayCarros.includes(sessionStorage.carro_usuario_meuapp)) {
-    linkTesla.href += `${carroLinkComplete}`;
-    linkCarroTesla.href += `${carroLinkComplete}.html`;
+    linkTesla.href = `https://www.tesla.com/${carroLinkComplete}`;
+    linkCarroTesla.href = `${carroLinkComplete}.html`;
 }
