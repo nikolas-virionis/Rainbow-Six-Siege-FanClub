@@ -6,26 +6,26 @@ passwordId.readOnly = readOnlyData;
 inputlist.readOnly = readOnlyData;
 idadeId.readOnly = readOnlyData;
 fanId.readOnly = readOnlyData;
-emailId.value = sessionStorage.email_usuario_meuapp;
+emailId.value = sessionStorage.email;
 if (readOnlyData) {
-    nomeId.value = sessionStorage.nome_usuario_meuapp ?? '*não declarado*';
-    nickId.value = sessionStorage.username_usuario_meuapp ?? '*não declarado*';
-    passwordId.value = sessionStorage.senha_usuario_meuapp ?? '*não declarado*';
-    inputlist.value = sessionStorage.carro_usuario_meuapp ?? '*não declarado*';
-    idadeId.value = sessionStorage.anoNasc_usuario_meuapp ?? '*não declarado*';
-    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '*não declarado*';
+    nomeId.value = sessionStorage.nome ?? '*não declarado*';
+    nickId.value = sessionStorage.username ?? '*não declarado*';
+    passwordId.value = sessionStorage.senha ?? '*não declarado*';
+    inputlist.value = sessionStorage.carro ?? '*não declarado*';
+    idadeId.value = sessionStorage.anoNasc ?? '*não declarado*';
+    fanId.value = sessionStorage.anoInicio ?? '*não declarado*';
     btnEdit.style.display = "flex";
     btnConfirm.style.display = "flex";
     btnCancel.style.display = "none";
     btnSave.style.display = "none";
 }
 else {
-    nomeId.value = sessionStorage.nome_usuario_meuapp ?? '';
-    nickId.value = sessionStorage.username_usuario_meuapp ?? '';
-    passwordId.value = sessionStorage.senha_usuario_meuapp ?? '';
-    inputlist.value = sessionStorage.carro_usuario_meuapp ?? '';
-    idadeId.value = sessionStorage.anoNasc_usuario_meuapp ?? '';
-    fanId.value = sessionStorage.anoInicio_usuario_meuapp ?? '';
+    nomeId.value = sessionStorage.nome ?? '';
+    nickId.value = sessionStorage.username ?? '';
+    passwordId.value = sessionStorage.senha ?? '';
+    inputlist.value = sessionStorage.carro ?? '';
+    idadeId.value = sessionStorage.anoNasc ?? '';
+    fanId.value = sessionStorage.anoInicio ?? '';
     btnEdit.style.display = "none";
     btnConfirm.style.display = "none";
     btnCancel.style.display = "flex";
@@ -61,12 +61,12 @@ function deixarReadOnly() {
     window.location.reload();
 }
 function salvarInfo() {
-    sessionStorage.username_usuario_meuapp = nickId.value;
-    sessionStorage.nome_usuario_meuapp = nomeId.value;
-    sessionStorage.carro_usuario_meuapp = inputlist.value;
-    sessionStorage.senha_usuario_meuapp = passwordId.value;
-    sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
-    sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+    sessionStorage.username = nickId.value;
+    sessionStorage.nome = nomeId.value;
+    sessionStorage.carro = inputlist.value;
+    sessionStorage.senha = passwordId.value;
+    sessionStorage.anoNasc = idadeId.value;
+    sessionStorage.anoInicio = fanId.value;
     deixarReadOnly();
 }
 function enterFuncMid(event, blur, focus) {

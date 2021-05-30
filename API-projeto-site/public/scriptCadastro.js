@@ -20,13 +20,13 @@ const confirmPassword = () => {
     return senhasIguais;
 }
 function cadastroFeito() {
-    sessionStorage.username_usuario_meuapp = nickId.value;
-    sessionStorage.nome_usuario_meuapp = nomeId.value;
-    sessionStorage.carro_usuario_meuapp = inputlist.value;
-    sessionStorage.email_usuario_meuapp = emailId.value;
-    sessionStorage.senha_usuario_meuapp = passwordId.value;
-    sessionStorage.anoNasc_usuario_meuapp = idadeId.value;
-    sessionStorage.anoInicio_usuario_meuapp = fanId.value;
+    sessionStorage.username = nickId.value;
+    sessionStorage.nome = nomeId.value;
+    sessionStorage.carro = inputlist.value;
+    sessionStorage.email = emailId.value;
+    sessionStorage.senha = passwordId.value;
+    sessionStorage.anoNasc = idadeId.value;
+    sessionStorage.anoInicio = fanId.value;
     logins = "1";
     sessionStorage.setItem("logins", logins);
     window.location.href = 'menuOptions.html';

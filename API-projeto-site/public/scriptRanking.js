@@ -27,5 +27,5 @@ function dadosCarro(json, idCarro) {
     posição.innerHTML = json[idCarro - 1].nomeCarro;
     pontos.innerHTML = json[idCarro - 1].qtdFks;
     posição.href = `${((json[idCarro - 1].nomeCarro).split(" ").join("")).toLowerCase()}.html`;
-    if (sessionStorage.carro_usuario_meuapp == posição.innerHTML) backg.style.backgroundColor = "#404040";
+    if (sessionStorage.carro == posição.innerHTML) backg.style.backgroundColor = "#404040";
 }

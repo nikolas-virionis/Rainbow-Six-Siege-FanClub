@@ -25,19 +25,19 @@ function entrar() {
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(json => {
-                if (json.carroFav == 1) sessionStorage.carro_usuario_meuapp = "Model S";
-                else if (json.carroFav == 2) sessionStorage.carro_usuario_meuapp = "Model 3";
-                else if (json.carroFav == 3) sessionStorage.carro_usuario_meuapp = "Model X";
-                else if (json.carroFav == 4) sessionStorage.carro_usuario_meuapp = "Model Y";
-                else if (json.carroFav == 5) sessionStorage.carro_usuario_meuapp = "Roadster";
-                else if (json.carroFav == 6) sessionStorage.carro_usuario_meuapp = "Semi";
-                else if (json.carroFav == 7) sessionStorage.carro_usuario_meuapp = "Cybertruck";
-                sessionStorage.username_usuario_meuapp = json.username;
-                sessionStorage.nome_usuario_meuapp = json.nome;
-                sessionStorage.email_usuario_meuapp = json.email;
-                sessionStorage.senha_usuario_meuapp = json.senha;
-                sessionStorage.anoNasc_usuario_meuapp = json.anoNasc;
-                sessionStorage.anoInicio_usuario_meuapp = json.anoInicio;
+                if (json.carroFav == 1) sessionStorage.carro = "Model S";
+                else if (json.carroFav == 2) sessionStorage.carro = "Model 3";
+                else if (json.carroFav == 3) sessionStorage.carro = "Model X";
+                else if (json.carroFav == 4) sessionStorage.carro = "Model Y";
+                else if (json.carroFav == 5) sessionStorage.carro = "Roadster";
+                else if (json.carroFav == 6) sessionStorage.carro = "Semi";
+                else if (json.carroFav == 7) sessionStorage.carro = "Cybertruck";
+                sessionStorage.username = json.username;
+                sessionStorage.nome = json.nome;
+                sessionStorage.email = json.email;
+                sessionStorage.senha = json.senha;
+                sessionStorage.anoNasc = json.anoNasc;
+                sessionStorage.anoInicio = json.anoInicio;
                 logins = "1";
                 sessionStorage.setItem("logins", logins);
                 window.location.href = 'menuOptions.html';
