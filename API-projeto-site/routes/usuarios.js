@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
-/* Atualizar usuário */
+// Atualizar usuário 
 router.post('/atualizar', function(req, res, next) {
-	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var nome = req.body.nome; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var username = req.body.username; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var carroFav = req.body.carroFav; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var anoNasc = req.body.anoNasc; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var anoInicio = req.body.anoInicio; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var email = req.body.email;
+	var nome = req.body.nome;
+	var senha = req.body.senha;
+	var username = req.body.username;
+	var carroFav = req.body.carroFav;
+	var anoNasc = req.body.anoNasc;
+	var anoInicio = req.body.anoInicio;
 	let carrofk = null;
 	if (carroFav == "Model S") carrofk = 1;
 	else if (carroFav == "Model 3") carrofk = 2;
@@ -28,11 +28,11 @@ router.post('/atualizar', function(req, res, next) {
 	).catch(erro => res.status(500).send(erro.message)
   	);
 });
-/* Recuperar usuário por login e senha */
+// Recuperar usuário por login e senha
 router.post('/autenticar', function(req, res, next) {
 	console.log('Recuperando usuário por login e senha');
-	var login = req.body.username; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login		
+	var login = req.body.username;
+	var senha = req.body.senha;		
 	let instrucaoSql = `select * from usuario where username='${login}' and senha='${senha}'`;
 	console.log(instrucaoSql);
 	sequelize.query(instrucaoSql, {
@@ -40,7 +40,7 @@ router.post('/autenticar', function(req, res, next) {
 	}).then(resultado => resultado.length != 0 ? res.json(resultado[0]) : res.status(403).send('Login e/ou senha inválido(s)')
 	).catch(erro => res.status(500).send(erro.message));
 });
-/* Recuperar usuário por login e senha */
+// Recuperar usuário por login e senha
 router.get('/autenticarRank', function(req, res, next) {
 	console.log('Recuperando numeros de carros');
 	let instrucaoSql = "select u.carroFav as fkCarro, count(u.carroFav) as qtdFks, c.nomeCarro from carros as c inner join usuario as u on u.carroFav = c.idCarro group by carroFav order by count(carroFav) desc;";
@@ -50,11 +50,11 @@ router.get('/autenticarRank', function(req, res, next) {
 	}).then(resultado => resultado == null || resultado.length == null ? console.log(`%c VALOR DE RESULTADO DE CARROS INVÁLIDO`, "color: red; background-color: white;") : res.json(resultado)
 	).catch(erro => res.status(500).send(erro.message));
 });
-/* Verificação da senha do usuário para edição dos dados */
+// Verificação da senha do usuário para edição dos dados
 router.post('/autenticarSenha', function(req, res, next) {
 	console.log('Recuperando senha');
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
-	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login	
+	var senha = req.body.senha;	
+	var email = req.body.email;	
 	let instrucaoSQL = `select * from usuario where email = '${email}' and senha='${senha}';`;
 	console.log(instrucaoSQL);
 	sequelize.query(instrucaoSQL, {
@@ -69,9 +69,9 @@ router.post('/autenticarSenha', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
-/* Cadastrar usuário */
+// Cadastrar usuário
 router.post('/cadastrar', function(req, res, next) {
-	var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var email = req.body.email;
 	let carrofk = null;
 	let instrucaoSql = `select * from usuario where email='${email}'`;
 	console.log(instrucaoSql);
@@ -109,7 +109,7 @@ router.post('/cadastrar', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
-/* Recuperar todos os usuários */
+// Recuperar todos os usuários
 router.get('/', function(req, res, next) {
 	console.log('Recuperando todos os usuários');
 	Usuario.findAndCountAll().then(resultado => {

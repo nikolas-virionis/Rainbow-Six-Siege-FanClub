@@ -6,9 +6,7 @@ const setLink = (linkpos, linkpts, backRank) => {
 }
 submitRank();
 function submitRank() {
-    for (let idCarro = 1; idCarro <= 7; idCarro++) {
-        fetch("/usuarios/autenticarRank").then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
-    }
+    for (let idCarro = 1; idCarro <= 7; idCarro++) fetch("/usuarios/autenticarRank").then(resposta => resposta.ok ? resposta.json().then(json => dadosCarro(json, idCarro)) : console.error(`Erro de autenticação do carro ${idCarro}`));
     colocações[0].style.color = 'gold'
     colocações[1].style.color = 'silver'
     colocações[2].style.color = 'darkgoldenrod'
