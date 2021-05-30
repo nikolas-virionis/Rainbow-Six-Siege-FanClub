@@ -51,10 +51,10 @@ router.get('/autenticarRank', function(req, res, next) {
 	).catch(erro => res.status(500).send(erro.message));
 });
 // Verificação da senha do usuário para edição dos dados
-router.post('/autenticarSenha', function(req, res, next) {
+router.post('/autenticarSenha/:email', function(req, res, next) {
 	console.log('Recuperando senha');
 	var senha = req.body.senha;	
-	var email = req.body.email;	
+	var email = req.params.email;	
 	let instrucaoSQL = `select * from usuario where email = '${email}' and senha='${senha}';`;
 	console.log(instrucaoSQL);
 	sequelize.query(instrucaoSQL, {
