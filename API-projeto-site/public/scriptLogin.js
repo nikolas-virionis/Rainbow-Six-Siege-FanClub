@@ -3,7 +3,10 @@ nickId.focus();
 sideNavHandle(false);
 loginLink.style.display = "none";
 loginId.style.display = "none";
-const confirmProfile = () => nickId.value == "" || passwordId.value == "" ? alert("Existem campos obrigatórios vazios, preencha-los para continuar") : entrar();
+const confirmProfile = () => nickId.value == "" 
+                             || passwordId.value == "" 
+                                  ? alertCampoVazio()
+                                  : entrar();
 const enterFunc = event => {
     if (event.key === "Enter") {
         event.preventDefault();

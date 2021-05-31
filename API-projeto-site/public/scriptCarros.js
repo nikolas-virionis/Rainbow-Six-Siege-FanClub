@@ -7,7 +7,10 @@ else if (document.title[document.title.length - 1].toLowerCase() == "r") carro =
 else if (document.title[document.title.length - 1].toLowerCase() == "i") carro = 6;
 else if (document.title[document.title.length - 1].toLowerCase() == "k") carro = 7;
 else console.error("Erro de escolha do carro, tente novamente mais tarde");
-const checkCarro = () => fetch(`/carros/autenticarCarro/${carro}`).then(resposta => resposta.ok ? resposta.json().then(json => assignNewValues(json)) : carError());
+const checkCarro = () => fetch(`/carros/autenticarCarro/${carro}`)
+                         .then(resposta => resposta.ok 
+                            ? resposta.json().then(json => assignNewValues(json)) 
+                            : carError());
 function assignNewValues(json) {
     vMaxId.innerHTML = json.vMax;
     aceleração0_100Id.innerHTML = json.aceleração0_100;

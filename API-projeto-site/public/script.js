@@ -91,7 +91,15 @@ function sideNavHandle(id) {
   historyTab.style.marginTop = "12.5vh";
   id ? id.style.display = "none" : '';
 }
-logins === '1' || document.title[document.title.length - 1] == 's' ? loginBtnHandle('none', 'block') : loginBtnHandle('block', 'none');
+function senhaInvalida() {
+    alert("Senha Inválida");
+    passwordId.value = "";
+    if (passwordIdConfirm) passwordIdConfirm.value = "";
+}
+const alertCampoVazio = () => alert("Existem campos obrigatórios vazios, preencha-los para continuar");
+logins === '1' || document.title[document.title.length - 1] == 's' 
+  ? loginBtnHandle('none', 'block') 
+  : loginBtnHandle('block', 'none');
 document.addEventListener('mousemove', () => actionDone());
 document.addEventListener('keypress', () => actionDone());
 setInter = setInterval(dimInterval, 1000);

@@ -7,7 +7,11 @@ const verificarSenhaUser = event => {
         fetch(`/usuarios/autenticarSenha/${sessionStorage.email}`, {
             method: "POST",
             body: formularioVerify
-        }).then(resposta => resposta.ok ? resposta.json().then(json => json.senha && json.senha == passwordId.value ? window.location.href = "perfil.html" : senhaCheck()) : console.log('Erro de verificação de senha!'));
+        }).then(resposta => resposta.ok 
+            ? resposta.json().then(json => json.senha && json.senha == passwordId.value 
+                ? window.location.href = "perfil.html" 
+                : senhaCheck()) 
+            : console.log('Erro de verificação de senha!'));
     }
 }
 function senhaCheck() {

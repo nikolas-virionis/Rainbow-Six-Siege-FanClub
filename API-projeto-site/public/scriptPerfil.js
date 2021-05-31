@@ -42,8 +42,13 @@ const voltarMenu = event => {
 const cancelarEdição = () => deixarReadOnly();
 const salvarEdição = event => {
     event.preventDefault();
-    if (idadeId.value == "" || fanId.value == "" || inputlist.value == "" || passwordId.value == "" || nomeId.value == "" || nickId.value == "") alert("Existem campos obrigatórios vazios, preencha-los para continuar");
-    else if (!validatePassword(passwordId)) alert("Senha Inválida");
+    if (idadeId.value == "" 
+        || fanId.value == "" 
+        || inputlist.value == "" 
+        || passwordId.value == "" 
+        || nomeId.value == "" 
+        || nickId.value == "") alertCampoVazio();
+    else if (!validatePassword(passwordId)) senhaInvalida();
     else {
         confirmSave = confirm('Tem certeza que deseja Salvar as Alterações?');
         if (confirmSave) {
