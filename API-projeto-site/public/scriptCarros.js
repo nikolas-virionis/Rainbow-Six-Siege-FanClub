@@ -1,4 +1,4 @@
-let idCarro;
+let carro;
 if (document.title[document.title.length - 1].toLowerCase() == "s") carro = 1;
 else if (document.title[document.title.length - 1].toLowerCase() == "3") carro = 2;
 else if (document.title[document.title.length - 1].toLowerCase() == "x") carro = 3;
